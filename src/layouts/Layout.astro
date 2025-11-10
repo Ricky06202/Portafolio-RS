@@ -1,22 +1,31 @@
+---
+// src/layouts/Layout.astro
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-gray-900 text-white font-sans">
+		<main class="container mx-auto px-4 md:px-8 py-12">
+			<!-- El contenido de cada página se insertará aquí -->
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
