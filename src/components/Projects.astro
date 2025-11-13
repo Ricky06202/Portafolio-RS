@@ -6,22 +6,24 @@ import medallasImage from '@/assets/Proyecto Medallas.png'; // <-- ¡Asegúrate 
 // Agrega aquí las imágenes para tus nuevos proyectos y reemplaza los nombres de archivo.
 import senderosImage from '@/assets/SenderosAmados.png'; // <-- Reemplaza con tu imagen
 import dulcesImage from '@/assets/DulcesChalia.png';   // <-- Reemplaza con tu imagen
+import todoListImage from '@/assets/TodoList.png';   // <-- Reemplaza con tu imagen
+import blenderImage from '@/assets/BlenderCurso.png';   // <-- Reemplaza con tu imagen
 
 const projects = [
   {
     title: "Galería de Medallas",
-    image: medallasImage,
+    image: medallasImage.src,
     imageAlt: "Captura de pantalla del proyecto Galería de Medallas",
     role: "Desarrollador Full-stack",
     description: "Plataforma web diseñada para exhibir un catálogo digital de medallas personalizadas, con el objetivo de atraer a nuevos clientes y mostrar la calidad y variedad de los productos de la empresa. Desarrollé la aplicación de manera integral, incluyendo tanto el Backend como el Frontend.",
     achievements: "Centralicé todo el catálogo de productos en un solo lugar, creando una herramienta visual y accesible que facilita a los clientes potenciales la exploración de opciones de diseño y los colores disponibles.",
-    technologies: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Git', 'VS Code', 'Vercel'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Git', 'VS Code', 'Vercel'],
     githubUrl: "https://github.com/Ricky06202/galeria-sanjur", // o tu URL: "https://github.com/..."
     liveUrl: "https://medallas.rsanjur.com",   // o tu URL: "https://..."
   },
   {
     title: "Senderos Amados",
-    image: senderosImage,
+    image: senderosImage.src,
     imageAlt: "Captura de pantalla del proyecto Senderos Amados",
     role: "Desarrollador Frontend",
     description: "Página web promocional para el alquiler de casas en Boquete. El sitio presenta descripciones detalladas del lugar y una galería de imágenes para que los visitantes puedan conocer más sobre la propiedad.",
@@ -41,6 +43,30 @@ const projects = [
     githubUrl: "https://github.com/Ricky06202/Dulces-Chalia", // <-- Añade aquí tu enlace de GitHub
     liveUrl: "http://dulceschalia.com",   // <-- Añade aquí tu enlace al sitio en vivo
   }
+  ,{
+    title: "Todolist",
+    image: todoListImage.src, // <-- Reemplaza con tu imagen
+    imageAlt: "Captura de pantalla del proyecto Todolist",
+    role: "Desarrollador Full-stack",
+    description: "Aplicación web para gestionar tareas y mantener el control de lo que se debe hacer. La aplicación permite crear, editar y eliminar tareas, marcar como completadas y filtrar por estados.",
+    achievements: "Creé una aplicación web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La aplicación se subió a un servidor en cPanel y se puede acceder desde la url todolist.rsanjur.com",
+    technologies: ['Astro', 'Tailwind CSS', 'Express.js', 'MySQL', 'Git', 'VS Code'],
+    githubUrl: "https://github.com/Ricky06202/todo-list", // <-- Añade aquí tu enlace de GitHub
+    liveUrl: "https://todolist.rsanjur.com",   // <-- Añade aquí tu enlace al sitio en vivo
+  }
+  ,{
+    title: "Curso de Blender",
+    image: blenderImage.src, // <-- Reemplaza con tu imagen
+    imageAlt: "Captura de pantalla del proyecto Curso de Blender",
+    role: "Desarrollador Full-stack",
+    description: "Página web para compartir mi curso de Blender, donde puedes ver los capitulos que he realizado y te animo a aprender Blender en este proyecto aprendí a trabajar con un backend en Express.js, usando Drizzle para la base de datos MySQL y Passport para la autenticación de usuarios, permitiendo llevar el progreso de cada usuario con sus capitulos.",
+    achievements: "Creé una página web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La página se subió a un servidor en cPanel y se puede acceder desde la url blender-curso.rsanjur.com",
+    technologies: ['Astro', 'Tailwind CSS', 'Express.js', 'MySQL', 'Passport', 'Git', 'VS Code'],
+    githubUrl: "https://github.com/Ricky06202/blender-curso", // <-- Añade aquí tu enlace de GitHub
+    liveUrl: "https://blender.rsanjur.com",   // <-- Añade aquí tu enlace al sitio en vivo
+  }
+  
+
 ];
 ---
 
@@ -54,8 +80,8 @@ const projects = [
       <div class="bg-gray-800 rounded-lg p-6 shadow-lg flex flex-col md:flex-row gap-8 items-center">
         <!-- Contenedor de la Imagen -->
         <div class="md:w-1/3 w-full shrink-0">
-          <Image
-            src={project.image}
+          <img
+            src={project.image as string}
             alt={project.imageAlt}
             class="rounded-lg w-full h-auto shadow-md"
           />
