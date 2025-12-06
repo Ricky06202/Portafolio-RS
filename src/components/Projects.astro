@@ -8,7 +8,20 @@ import blenderImage from '@/assets/BlenderCurso.png';
 import destruirBloques2d from '@/assets/Destruir Bloques 2D.png'
 import amiguitosMonederos from '@/assets/Amiguitos Monederos.png'
 
-const projects = [
+interface Project {
+  title: string;
+  image: string;
+  imageAlt: string;
+  role: string;
+  description: string;
+  achievements: string;
+  technologies: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  
+}
+
+const projects: Project[] = [
   { // Galeria Medallas
     title: "Galería de Medallas",
     image: medallasImage.src,
@@ -39,7 +52,7 @@ const projects = [
     achievements: "Implementé un sistema de TileMap que permite diseñar niveles pintando bloques visualmente, los cuales un script transforma automáticamente en bloques funcionales del mismo color. Además, creé un sistema de reemplazo aleatorio que sustituye bloques normales por bloques de oro o plata según la dificultad seleccionada, permitiendo aumentar la dificultad sin modificar el diseño del nivel.",
     technologies: ['Godot', 'GDScript', 'Git', 'VS Code'],
     githubUrl: "https://github.com/Ricky06202/Destruir-Bloques-2D",
-
+    liveUrl: 'https://rickygamerpty.itch.io/destruir-bloques-2d'
   },
   { // Senderos Amados
     title: "Senderos Amados",
