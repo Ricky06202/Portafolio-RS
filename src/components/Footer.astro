@@ -1,9 +1,15 @@
+---
+import { useTranslations, getLangFromUrl } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
 <footer class="text-center py-8 border-t border-gray-700">
   <p class="text-gray-500">
-    Desarrollado con ❤️ usando Astro y Tailwind CSS.
+    {t('footer.developed')}
   </p>
   <p class="text-gray-500 mt-1">
-    © {new Date().getFullYear()} Ricardo Sanjur. Todos los derechos reservados.
+    © {new Date().getFullYear()} Ricardo Sanjur. {t('footer.rights')}
   </p>
 </footer>
-

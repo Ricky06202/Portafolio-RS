@@ -1,0 +1,26 @@
+---
+import { languages } from '../i18n/ui'
+import { getLangFromUrl } from '../i18n/utils'
+
+const currentLang = getLangFromUrl(Astro.url)
+---
+
+<div
+  class="flex items-center gap-4 bg-gray-800/50 px-4 py-2 rounded-full backdrop-blur-sm border border-gray-700"
+>
+  {
+    Object.entries(languages).map(([code, label]) => (
+      <a
+        href={`/${code}/`}
+        class={`text-sm font-bold transition-colors ${
+          currentLang === code
+            ? 'text-cyan-400'
+            : 'text-gray-400 hover:text-white'
+        }`}
+        title={label}
+      >
+        {code.toUpperCase()}
+      </a>
+    ))
+  }
+</div>

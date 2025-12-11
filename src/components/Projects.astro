@@ -1,110 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
-import medallasImage from '@/assets/Proyecto Medallas.png';
-import senderosImage from '@/assets/SenderosAmados.png'; 
-import dulcesImage from '@/assets/DulcesChalia.png';   
-import todoListImage from '@/assets/TodoList.png';   
-import blenderImage from '@/assets/BlenderCurso.png';   
-import destruirBloques2d from '@/assets/Destruir Bloques 2D.png'
-import amiguitosMonederos from '@/assets/Amiguitos Monederos.png'
+import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { projectsData } from '../i18n/data';
 
-interface Project {
-  title: string;
-  image: string;
-  imageAlt: string;
-  role: string;
-  description: string;
-  achievements: string;
-  technologies: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  
-}
-
-const projects: Project[] = [
-  { // Galeria Medallas
-    title: "Galería de Medallas",
-    image: medallasImage.src,
-    imageAlt: "Captura de pantalla del proyecto Galería de Medallas",
-    role: "Desarrollador Full-stack",
-    description: "Plataforma web diseñada para exhibir un catálogo digital de medallas personalizadas, con el objetivo de atraer a nuevos clientes y mostrar la calidad y variedad de los productos de la empresa. Desarrollé la aplicación de manera integral, incluyendo tanto el Backend como el Frontend.",
-    achievements: "Centralicé todo el catálogo de productos en un solo lugar, creando una herramienta visual y accesible que facilita a los clientes potenciales la exploración de opciones de diseño y los colores disponibles.",
-    technologies: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Git', 'VS Code', 'Vercel'],
-    githubUrl: "https://github.com/Ricky06202/galeria-sanjur", 
-    liveUrl: "https://medallas.rsanjur.com",   
-  },
-  { // Amiguitos Monederos
-    title: "Amiguitos Monederos",
-    image: amiguitosMonederos.src,
-    imageAlt: "Captura de pantalla del juego Amiguitos Monederos",
-    role: "Desarrollador de Videojuegos",
-    description: "Juego de plataformas desarrollado en Godot donde el jugador debe recolectar todas las monedas y vencer a todos los enemigos del nivel para ganar. El juego cuenta con 4 transformaciones: humano, ratón, gallina y sapo, cada una con habilidades únicas que el jugador puede utilizar estratégicamente.",
-    achievements: "Implementé un sistema de recursos personalizados en Godot para cada transformación, enemigo y tipo de moneda, lo que permitió crear componentes reutilizables que solo necesitaban reemplazar el recurso para convertirse en entidades diferentes, optimizando significativamente el desarrollo.",
-    technologies: ['Godot', 'GDScript', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/amiguitos-monederos",
-  },
-  {
-    title: "Destruir Bloques 2D",
-    image: destruirBloques2d.src,
-    imageAlt: "Captura de pantalla del juego Destruir Bloques 2D",
-    role: "Desarrollador de Videojuegos",
-    description: "Juego arcade clásico donde controlas una barra en la parte inferior de la pantalla para hacer rebotar una bola y destruir los bloques en la parte superior. El juego cuenta con 3 vidas, 5 niveles y diferentes dificultades que incluyen bloques plateados (2 golpes) y bloques dorados (3 golpes).",
-    achievements: "Implementé un sistema de TileMap que permite diseñar niveles pintando bloques visualmente, los cuales un script transforma automáticamente en bloques funcionales del mismo color. Además, creé un sistema de reemplazo aleatorio que sustituye bloques normales por bloques de oro o plata según la dificultad seleccionada, permitiendo aumentar la dificultad sin modificar el diseño del nivel.",
-    technologies: ['Godot', 'GDScript', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/Destruir-Bloques-2D",
-    liveUrl: 'https://rickygamerpty.itch.io/destruir-bloques-2d'
-  },
-  { // Senderos Amados
-    title: "Senderos Amados",
-    image: senderosImage.src,
-    imageAlt: "Captura de pantalla del proyecto Senderos Amados",
-    role: "Desarrollador Frontend",
-    description: "Página web promocional para el alquiler de casas en Boquete. El sitio presenta descripciones detalladas del lugar y una galería de imágenes para que los visitantes puedan conocer más sobre la propiedad.",
-    achievements: "Creé una presencia online atractiva y funcional para la propiedad, facilitando la promoción y la captación de potenciales inquilinos a través de un diseño visualmente agradable y una navegación intuitiva.",
-    technologies: ['Astro', 'Tailwind CSS', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/Senderos-Amados", 
-    liveUrl: "http://senderosamados.rsanjur.com",   
-  },
-  { // Dulces Chalia
-    title: "Dulces Chalia",
-    image: dulcesImage.src,
-    imageAlt: "Captura de pantalla del proyecto Dulces Chalia",
-    role: "Desarrollador Frontend",
-    description: "Proyecto web para promocionar los productos de repostería de 'Dulces Chalia', incluyendo pasteles de boda, cumpleaños, galletas decoradas y flores de azúcar. La página cuenta con descripciones y una galería de los productos.",
-    achievements: "Digitalicé el catálogo de productos de repostería, creando una vitrina virtual que permite a los clientes ver la calidad y el arte de los dulces, facilitando la decisión de compra y el contacto.",
-    technologies: ['Astro', 'Tailwind CSS', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/Dulces-Chalia", 
-    liveUrl: "http://dulceschalia.com",  
-  }
-  ,{ // TodoList
-    title: "Todolist",
-    image: todoListImage.src, 
-    imageAlt: "Captura de pantalla del proyecto Todolist",
-    role: "Desarrollador Full-stack",
-    description: "Aplicación web para gestionar tareas y mantener el control de lo que se debe hacer. La aplicación permite crear, editar y eliminar tareas, marcar como completadas y filtrar por estados.",
-    achievements: "Creé una aplicación web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La aplicación se subió a un servidor en cPanel y se puede acceder desde la url todolist.rsanjur.com",
-    technologies: ['Astro', 'Tailwind CSS', 'Express.js', 'MySQL', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/todo-list", 
-    liveUrl: "https://todolist.rsanjur.com",   
-  }
-  ,{ // Curso Blender
-    title: "Curso de Blender",
-    image: blenderImage.src, 
-    imageAlt: "Captura de pantalla del proyecto Curso de Blender",
-    role: "Desarrollador Full-stack",
-    description: "Página web para compartir mi curso de Blender, donde puedes ver los capitulos que he realizado y te animo a aprender Blender en este proyecto aprendí a trabajar con un backend en Express.js, usando Drizzle para la base de datos MySQL y Passport para la autenticación de usuarios, permitiendo llevar el progreso de cada usuario con sus capitulos.",
-    achievements: "Creé una página web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La página se subió a un servidor en cPanel y se puede acceder desde la url blender-curso.rsanjur.com",
-    technologies: ['Astro', 'Tailwind CSS', 'Express.js', 'MySQL', 'Passport', 'Git', 'VS Code'],
-    githubUrl: "https://github.com/Ricky06202/blender-curso", 
-    liveUrl: "https://blender.rsanjur.com",   
-  },
-
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = projectsData[lang];
 ---
 
 <section id="projects" class="mb-16">
   <h2 class="text-3xl font-bold mb-8 border-b-2 border-cyan-400 pb-2">
-    Proyectos Relevantes
+    {t('projects.title')}
   </h2>
 
   <div class="flex flex-col gap-12">
@@ -113,7 +19,7 @@ const projects: Project[] = [
         <!-- Contenedor de la Imagen -->
         <div class="md:w-1/3 w-full shrink-0">
           <img
-            src={project.image as string}
+            src={project.image.src}
             alt={project.imageAlt}
             class="rounded-lg w-full h-auto shadow-md"
           />
@@ -133,18 +39,18 @@ const projects: Project[] = [
             </div>
           </header>
           <p class="text-sm font-semibold text-gray-400 mb-4">
-            Rol: {project.role}
+            {t('projects.role')}: {project.role}
           </p>
     
           <p class="text-gray-300 mb-4">{project.description}</p>
     
           <div class="mb-4">
-            <p class="font-semibold text-gray-200">Logros:</p>
+            <p class="font-semibold text-gray-200">{t('projects.achievements')}:</p>
             <p class="text-gray-300">{project.achievements}</p>
           </div>
     
           <div>
-            <p class="font-semibold text-gray-200 mb-2">Tecnologías y Herramientas:</p>
+            <p class="font-semibold text-gray-200 mb-2">{t('projects.tech')}:</p>
             <div class="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span class="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-2.5 py-1 rounded-full">
