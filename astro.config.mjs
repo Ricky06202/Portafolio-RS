@@ -12,8 +12,4 @@ export default defineConfig({
   },
 
   integrations: [icon()],
-
-  redirects: {
-    '/': '/es',
-  },
 })

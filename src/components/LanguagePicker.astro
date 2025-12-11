@@ -11,7 +11,7 @@ const currentLang = getLangFromUrl(Astro.url)
   {
     Object.entries(languages).map(([code, label]) => (
       <a
-        href={`/${code}/`}
+        href={code === 'es' ? '/' : `/${code}/`}
         class={`text-sm font-bold transition-colors ${
           currentLang === code
             ? 'text-cyan-400'
