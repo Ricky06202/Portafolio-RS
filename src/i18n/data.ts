@@ -5,6 +5,7 @@ import todoListImage from '@/assets/TodoList.png'
 import blenderImage from '@/assets/BlenderCurso.png'
 import destruirBloques2d from '@/assets/Destruir Bloques 2D.png'
 import amiguitosMonederos from '@/assets/Amiguitos Monederos.png'
+import reservasSenderosAmadosImage from '@/assets/ReservasSenderosAmados.png'
 
 export const aboutData = {
   es: 'Ingeniero en Sistemas proactivo con sólidas habilidades de desarrollo Full-stack, especializado en la creación de soluciones robustas tanto en Backend como en Frontend. Apasionado por la tecnología y con dominio del inglés, busco aplicar mis conocimientos en desarrollo de aplicaciones para contribuir al éxito de proyectos innovadores.',
@@ -106,6 +107,16 @@ const technologiesItems = {
   blenderCurso: ['Blender', 'Git', 'VS Code'],
   senderosAmados: ['React', 'TypeScript', 'Git', 'VS Code'],
   dulcesChalia: ['React', 'TypeScript', 'Git', 'VS Code'],
+  reservasSenderosAmados: [
+    'React Native',
+    'Expo',
+    'TypeScript',
+    'Tailwind',
+    'Drizzle',
+    'MySQL',
+    'Git',
+    'VS Code',
+  ],
 }
 
 const urls = {
@@ -136,10 +147,27 @@ const urls = {
     github: 'https://github.com/Ricky06202/Dulces-Chalia',
     live: 'http://dulceschalia.com',
   },
+  reservasSenderosAmados: {
+    github: 'https://github.com/Ricky06202/reserva-senderosamados',
+    live: 'https://reservas-senderosamados.rsanjur.com/',
+  },
 }
 
 export const projectsData = {
   es: [
+    {
+      title: 'Reservas Senderos Amados',
+      image: reservasSenderosAmadosImage,
+      imageAlt: 'Captura de pantalla de la aplicación Reservas Senderos Amados',
+      role: 'Desarrollador Mobile Full-stack',
+      description:
+        'Aplicación móvil diseñada para la administración de reservas de "Senderos Amados". Implementé un calendario interactivo que permite agregar, visualizar y eliminar reservas de manera eficiente, facilitando la gestión familiar de la propiedad.',
+      achievements:
+        'Desarrollé una solución móvil intuitiva que optimiza el proceso de reserva para mi familia, utilizando tecnologías modernas como React Native y Expo para garantizar un rendimiento fluido en dispositivos Android.',
+      technologies: technologiesItems.reservasSenderosAmados,
+      githubUrl: urls.reservasSenderosAmados.github,
+      liveUrl: urls.reservasSenderosAmados.live,
+    },
     {
       title: 'Galería de Medallas',
       image: medallasImage,
@@ -232,6 +260,19 @@ export const projectsData = {
     },
   ],
   en: [
+    {
+      title: 'Reservas Senderos Amados',
+      image: reservasSenderosAmadosImage,
+      imageAlt: 'Screenshot of the Reservas Senderos Amados application',
+      role: 'Mobile Full-stack Developer',
+      description:
+        'Mobile application designed for managing "Senderos Amados" reservations. I implemented an interactive calendar that allows adding, viewing, and deleting reservations efficiently, facilitating family property management.',
+      achievements:
+        'Developed an intuitive mobile solution that optimizes the booking process for my family, using modern technologies like React Native and Expo to ensure smooth performance on Android devices.',
+      technologies: technologiesItems.reservasSenderosAmados,
+      githubUrl: urls.reservasSenderosAmados.github,
+      liveUrl: urls.reservasSenderosAmados.live,
+    },
     {
       title: 'Medal Gallery',
       image: medallasImage,
@@ -326,6 +367,19 @@ export const projectsData = {
     },
   ],
   fr: [
+    {
+      title: 'Reservas Senderos Amados',
+      image: reservasSenderosAmadosImage,
+      imageAlt: "Capture d'écran de l'application Reservas Senderos Amados",
+      role: 'Développeur Mobile Full-stack',
+      description:
+        'Application mobile conçue pour gérer les réservations de "Senderos Amados". J\'ai implémenté un calendrier interactif qui permet d\'ajouter, de visualiser et de supprimer des réservations.',
+      achievements:
+        "Développement d'une solution mobile intuitive qui optimise le processus de réservation familiale, en utilisant React Native et Expo.",
+      technologies: technologiesItems.reservasSenderosAmados,
+      githubUrl: urls.reservasSenderosAmados.github,
+      liveUrl: urls.reservasSenderosAmados.live,
+    },
     {
       title: 'Galerie de Médailles',
       image: medallasImage,
