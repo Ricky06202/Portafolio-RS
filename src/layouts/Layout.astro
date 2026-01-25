@@ -25,13 +25,62 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack especializado en React, Next.js y Cloudflare." />
+    <meta property="og:image" content="/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack especializado en React, Next.js y Cloudflare." />
+    <meta property="twitter:image" content="/og-image.png" />
   </head>
-  <body class="bg-gray-900 text-white font-sans">
+  <body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-sky-500/30 selection:text-sky-400 overflow-x-hidden">
+    <!-- Fondo de malla sutil -->
+    <div class="fixed inset-0 -z-10 h-full w-full bg-neutral-950 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+      <div class="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-sky-500 opacity-10 blur-[100px]"></div>
+    </div>
     <Header />
-    <main class="container mx-auto px-4 md:px-8 py-12 pt-28">
-      <!-- El contenido de cada página se insertará aquí -->
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 pt-28">
       <slot />
     </main>
     <Footer />
+    
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Efecto Spotlight para tarjetas Bento
+      document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.bento-card');
+        cards.forEach((card) => {
+          const rect = (card as HTMLElement).getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+          (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components'
+import { useTranslations, getLangFromUrl } from '../i18n/utils'
+import { experienceData } from '../i18n/data'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const experiences = experienceData[lang as keyof typeof experienceData]
+---
+
+<section
+  id="experience"
+  class="col-span-12 md:col-span-6 bento-card reveal"
+>
+  <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-2">
+    <Icon name="lucide:briefcase" class="size-6 text-sky-400" />
+    {t('experience.title')}
+  </h2>
+  <div class="space-y-6">
+    {experiences.map((exp) => (
+      <div class="relative pl-6 border-l-2 border-neutral-800 group">
+        <div class="absolute -left-[9px] top-0 size-4 rounded-full bg-neutral-950 border-2 border-sky-500 group-hover:scale-125 transition-transform"></div>
+        <div class="flex flex-col mb-1">
+          <h3 class="text-lg font-bold text-white leading-tight group-hover:text-sky-400 transition-colors">
+            {exp.company}
+          </h3>
+          <span class="text-sky-500 font-bold text-xs uppercase tracking-wider mt-1">
+            {exp.role}
+          </span>
+        </div>
+        <p class="text-neutral-500 text-xs font-medium mb-2">
+          {exp.period}
+        </p>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+          {exp.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

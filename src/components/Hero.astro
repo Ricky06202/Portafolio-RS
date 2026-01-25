@@ -8,59 +8,41 @@ const t = useTranslations(lang)
 ---
 
 <section
-  class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mb-16"
+  class="col-span-12 md:col-span-8 bento-card flex flex-col md:flex-row items-center gap-8 reveal"
 >
   <!-- Contenedor de la Imagen -->
   <div class="shrink-0">
-    <img
-      src={profilePic.src}
-      alt="Foto de Ricardo Sanjur"
-      class="size-48 rounded-full object-cover border-4 border-cyan-400/50 shadow-lg"
-    />
+    <div class="relative group">
+      <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+      <img
+        src={profilePic.src}
+        alt="Foto de Ricardo Sanjur"
+        class="relative size-40 md:size-48 rounded-full object-cover border-2 border-neutral-800 shadow-xl"
+      />
+    </div>
   </div>
   <!-- Contenedor del Texto -->
-  <div class="text-center md:text-left">
-    <h1 class="text-4xl md:text-6xl font-bold text-cyan-400 mb-2">
-      Ricardo Amado Sanjur Gomez
+  <div class="text-center md:text-left flex-1">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 mb-4">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+      </span>
+      <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">{t('hero.status')}</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3">
+      Ricardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-400">Sanjur</span>
     </h1>
-    <p class="text-xl md:text-2xl text-gray-300 mb-6">
+    <p class="text-lg md:text-xl text-neutral-400 font-medium mb-6">
       {t('hero.role')}
     </p>
-    <div
-      class="flex justify-center md:justify-start items-center flex-wrap gap-x-6 gap-y-4"
+    <a
+      href="/CV_Ricardo_Sanjur.pdf"
+      download="CV_Ricardo_Sanjur.pdf"
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-500 text-neutral-950 font-bold text-sm hover:bg-sky-400 transition-all hover:scale-105 shadow-lg shadow-sky-500/20"
     >
-      <a
-        href="https://www.linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-      >
-        <Icon name="simple-icons:linkedin" class="size-6" />
-        <span class="hidden md:inline">LinkedIn</span>
-      </a>
-      <a
-        href="https://github.com/Ricky06202"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-      >
-        <Icon name="simple-icons:github" class="size-6" />
-        <span class="hidden md:inline">GitHub</span>
-      </a>
-      <a
-        href="mailto:ricardosanjurg@gmail.com"
-        class="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-      >
-        <Icon name="lucide:mail" class="size-6" />
-        <span class="hidden md:inline">ricardosanjurg@gmail.com</span>
-      </a>
-      <a
-        href="tel:+50665104147"
-        class="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-      >
-        <Icon name="lucide:phone" class="size-6" />
-        <span class="hidden md:inline">6510-4147</span>
-      </a>
-    </div>
+      <Icon name="lucide:download" class="size-4" />
+      {t('hero.download')}
+    </a>
   </div>
 </section>

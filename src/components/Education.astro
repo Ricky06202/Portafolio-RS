@@ -6,17 +6,26 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section id="education" class="mb-16">
-  <h2 class="text-3xl font-bold mb-6 border-b-2 border-cyan-400 pb-2">
+<section
+  id="education"
+  class="col-span-12 md:col-span-6 lg:col-span-4 bento-card reveal"
+>
+  <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-2">
+    <Icon name="lucide:graduation-cap" class="size-6 text-sky-400" />
     {t('education.title')}
   </h2>
-  <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
-    <h3 class="text-xl font-bold text-gray-200 flex items-center gap-3">
-      <Icon name="lucide:graduation-cap" class="size-7 text-cyan-400" />{
-        t('education.degree')
-      }
-    </h3>
-    <p class="text-cyan-400 font-semibold">Universidad Tecnológica de Panamá</p>
-    <p class="text-gray-400 text-sm">{t('education.status')}</p>
+  <div class="space-y-4">
+    <div class="relative pl-6 border-l-2 border-neutral-800">
+      <div class="absolute -left-[9px] top-0 size-4 rounded-full bg-neutral-950 border-2 border-sky-500"></div>
+      <h3 class="text-lg font-bold text-white leading-tight">
+        {t('education.degree')}
+      </h3>
+      <p class="text-sky-400 font-medium text-sm mt-1">
+        Universidad Tecnológica de Panamá
+      </p>
+      <p class="text-neutral-500 text-xs mt-1 font-medium">
+        {t('education.status')}
+      </p>
+    </div>
   </div>
 </section>

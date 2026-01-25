@@ -1,17 +1,22 @@
 ---
 import { useTranslations, getLangFromUrl } from '../i18n/utils'
 import { aboutData } from '../i18n/data'
+import { Icon } from 'astro-icon/components'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const text = aboutData[lang]
 ---
 
-<section id="about" class="mb-16">
-  <h2 class="text-3xl font-bold mb-6 border-b-2 border-cyan-400 pb-2">
+<section
+  id="about"
+  class="col-span-12 md:col-span-4 bento-card reveal"
+>
+  <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+    <Icon name="lucide:user" class="size-6 text-sky-400" />
     {t('about.title')}
   </h2>
-  <p class="text-gray-300 leading-relaxed">
+  <p class="text-neutral-400 leading-relaxed text-sm md:text-base">
     {text}
   </p>
 </section>

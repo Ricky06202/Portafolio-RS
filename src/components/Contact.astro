@@ -1,0 +1,108 @@
+---
+import { Icon } from 'astro-icon/components'
+import { useTranslations, getLangFromUrl } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const socials = [
+  {
+    name: 'LinkedIn',
+    icon: 'lucide:linkedin',
+    href: 'https://www.linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b/',
+    color: 'hover:text-[#0077B5]'
+  },
+  {
+    name: 'GitHub',
+    icon: 'lucide:github',
+    href: 'https://github.com/Ricky06202',
+    color: 'hover:text-white'
+  },
+  {
+    name: 'Email',
+    icon: 'lucide:mail',
+    href: 'mailto:ricardosanjurg@gmail.com',
+    color: 'hover:text-sky-400'
+  }
+]
+---
+
+<section
+  id="contact"
+  class="col-span-12 md:col-span-6 lg:col-span-4 bento-card reveal flex flex-col justify-between"
+>
+  <div>
+    <h2 class="text-2xl font-bold mb-4 text-white flex items-center gap-2">
+      <Icon name="lucide:message-circle" class="size-6 text-sky-400" />
+      {lang === 'es' ? 'Contacto' : lang === 'fr' ? 'Contact' : 'Contact'}
+    </h2>
+    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+      {lang === 'es' 
+        ? '¿Tienes un proyecto en mente? ¡Hablemos! Estoy siempre abierto a nuevas oportunidades y colaboraciones.' 
+        : lang === 'fr'
+        ? 'Vous avez un projet en tête ? Parlons-en ! Je suis toujours ouvert à de nouvelles opportunités et collaborations.'
+        : 'Have a project in mind? Let\'s talk! I\'m always open to new opportunities and collaborations.'}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4">
+    {socials.map((social) => (
+      social.name === 'Email' ? (
+        <div class="relative group/email col-span-1">
+          <a
+            href={social.href}
+            class={`flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-800/50 border border-neutral-700/50 transition-all duration-300 hover:border-sky-500/50 hover:bg-neutral-800 group ${social.color} h-full w-full`}
+            title={lang === 'es' ? 'Enviar correo' : lang === 'fr' ? 'Envoyer un e-mail' : 'Send email'}
+          >
+            <Icon name={social.icon} class="size-6 mb-2 group-hover:scale-110 transition-transform" />
+            <span class="text-[10px] font-black uppercase tracking-widest">{social.name}</span>
+          </a>
+          <button
+            id="copy-email"
+            data-email={social.href.replace('mailto:', '')}
+            class="absolute top-2 right-2 p-1.5 rounded-lg bg-neutral-900/80 border border-neutral-700 text-neutral-400 hover:text-sky-400 hover:border-sky-500/50 transition-all md:opacity-0 group-hover/email:opacity-100 shadow-lg"
+            title={lang === 'es' ? 'Copiar correo' : lang === 'fr' ? 'Copier l\'e-mail' : 'Copy email'}
+          >
+            <Icon name="lucide:copy" class="size-3" />
+            <span id="copy-tooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-sky-500 text-neutral-950 text-[10px] font-bold rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap">
+              {lang === 'es' ? '¡Copiado!' : lang === 'fr' ? 'Copié !' : 'Copied!'}
+            </span>
+          </button>
+        </div>
+      ) : (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-800/50 border border-neutral-700/50 transition-all duration-300 hover:border-sky-500/50 hover:bg-neutral-800 group ${social.color}`}
+          title={social.name}
+        >
+          <Icon name={social.icon} class="size-6 mb-2 group-hover:scale-110 transition-transform" />
+          <span class="text-[10px] font-black uppercase tracking-widest">{social.name}</span>
+        </a>
+      )
+    ))}
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copy-email');
+    const tooltip = document.getElementById('copy-tooltip');
+    
+    if (copyBtn && tooltip) {
+      copyBtn.addEventListener('click', () => {
+        const email = copyBtn.getAttribute('data-email');
+        if (email) {
+          navigator.clipboard.writeText(email).then(() => {
+            tooltip.classList.remove('opacity-0');
+            tooltip.classList.add('opacity-100');
+            
+            setTimeout(() => {
+              tooltip.classList.remove('opacity-100');
+              tooltip.classList.add('opacity-0');
+            }, 2000);
+          });
+        }
+      });
+    }
+  </script>
+</section>

@@ -6,39 +6,47 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<header
-  class="fixed top-0 left-0 right-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800 shadow-lg"
->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
   <div
-    class="container mx-auto px-4 md:px-8 h-16 flex items-center justify-between"
+    class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 rounded-2xl px-6 h-14 flex items-center justify-between shadow-2xl"
   >
     <a
       href={lang === 'es' ? '/' : `/${lang}/`}
-      class="text-2xl font-bold text-cyan-400 tracking-tighter hover:text-cyan-300 transition-colors"
+      class="text-xl font-black text-white tracking-tighter hover:text-sky-400 transition-all group"
     >
-      RS
+      RS<span class="text-sky-500 group-hover:animate-pulse">.</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8">
+    <nav class="hidden md:flex items-center gap-6">
       <a
         href="#about"
-        class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
         >{t('nav.about')}</a
       >
       <a
         href="#skills"
-        class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
         >{t('nav.skills')}</a
       >
       <a
+        href="#experience"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
+        >{t('nav.experience')}</a
+      >
+      <a
         href="#projects"
-        class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
         >{t('nav.projects')}</a
       >
       <a
         href="#education"
-        class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
         >{t('nav.education')}</a
+      >
+      <a
+        href="#contact"
+        class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
+        >{t('nav.contact')}</a
       >
     </nav>
 

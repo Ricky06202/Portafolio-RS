@@ -16,9 +16,11 @@ export function getStaticPaths() {
 
 <Layout title="Portafolio | Ricardo Sanjur">
   <!-- Todo lo que está aquí adentro se pasará al <slot /> del Layout -->
-  <Hero />
-  <About />
-  <Skills />
-  <Projects />
-  <Education />
+  <div class="grid grid-cols-12 gap-6">
+    <Hero />
+    <About />
+    <Skills />
+    <Education />
+    <Projects />
+  </div>
 </Layout>
