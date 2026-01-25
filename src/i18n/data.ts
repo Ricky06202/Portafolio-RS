@@ -6,6 +6,7 @@ import blenderImage from '@/assets/BlenderCurso.png'
 import destruirBloques2d from '@/assets/Destruir Bloques 2D.png'
 import amiguitosMonederos from '@/assets/Amiguitos Monederos.png'
 import reservasSenderosAmadosImage from '@/assets/ReservasSenderosAmados.png'
+import tshirtStrydImage from '@/assets/tshirt-stryd.png'
 
 export const aboutData = {
   es: 'Ingeniero en Sistemas proactivo con sólidas habilidades de desarrollo Full-stack, especializado en la creación de soluciones robustas tanto en Backend como en Frontend. Apasionado por la tecnología y con dominio del inglés, busco aplicar mis conocimientos en desarrollo de aplicaciones para contribuir al éxito de proyectos innovadores.',
@@ -38,6 +39,8 @@ const databasesItems = [
 ]
 const toolsItems = [
   'Cloudflare Workers',
+  'Cloudflare Zero Trust',
+  'Cloudflare Turnstile',
   'Vercel',
   'Git',
   'VS Code',
@@ -181,6 +184,17 @@ const technologiesItems = {
     'Git',
     'VS Code',
   ],
+  tshirtStryd: [
+    'Astro',
+    'React',
+    'Tailwind',
+    'Cloudflare D1',
+    'Cloudflare R2',
+    'Cloudflare Zero Trust',
+    'Cloudflare Turnstile (Captcha)',
+    'Git',
+    'VS Code',
+  ],
 }
 
 const urls = {
@@ -215,10 +229,27 @@ const urls = {
     github: 'https://github.com/Ricky06202/reserva-senderosamados',
     live: 'https://reservas-senderosamados.rsanjur.com/',
   },
+  tshirtStryd: {
+    github: 'https://github.com/Ricky06202/tshirt-stryd',
+    live: 'https://tshirt-stryd.ricardosanjurg.workers.dev',
+  },
 }
 
 export const projectsData = {
   es: [
+    {
+      title: 'T-Shirt Stryd',
+      image: tshirtStrydImage,
+      imageAlt: 'Captura de pantalla del proyecto T-Shirt Stryd',
+      role: 'Desarrollador Full-stack',
+      description:
+        'Sistema integral para la gestión de pedidos de camisetas deportivas de Stryd Panama. Desarrollé tanto el frontend como el backend, integrando múltiples servicios de Cloudflare para garantizar seguridad, escalabilidad y eficiencia.',
+      achievements:
+        'Implementé con éxito una arquitectura basada en Cloudflare Workers, utilizando D1 para la base de datos relacional, R2 para el almacenamiento de archivos y Zero Trust para la seguridad del panel administrativo. Además, integré Cloudflare Turnstile para la prevención de bots.',
+      technologies: technologiesItems.tshirtStryd,
+      githubUrl: urls.tshirtStryd.github,
+      liveUrl: urls.tshirtStryd.live,
+    },
     {
       title: 'Reservas Senderos Amados',
       image: reservasSenderosAmadosImage,
@@ -324,6 +355,19 @@ export const projectsData = {
     },
   ],
   en: [
+    {
+      title: 'T-Shirt Stryd',
+      image: tshirtStrydImage,
+      imageAlt: 'Screenshot of the T-Shirt Stryd project',
+      role: 'Full-stack Developer',
+      description:
+        'Comprehensive system for managing Stryd Panama sports jersey orders. I developed both the frontend and backend, integrating multiple Cloudflare services to ensure security, scalability, and efficiency.',
+      achievements:
+        'Successfully implemented a Cloudflare Workers-based architecture, using D1 for the relational database, R2 for file storage, and Zero Trust for administrative panel security. Additionally, I integrated Cloudflare Turnstile for bot prevention.',
+      technologies: technologiesItems.tshirtStryd,
+      githubUrl: urls.tshirtStryd.github,
+      liveUrl: urls.tshirtStryd.live,
+    },
     {
       title: 'Reservas Senderos Amados',
       image: reservasSenderosAmadosImage,
@@ -431,6 +475,19 @@ export const projectsData = {
     },
   ],
   fr: [
+    {
+      title: 'T-Shirt Stryd',
+      image: tshirtStrydImage,
+      imageAlt: "Capture d'écran du projet T-Shirt Stryd",
+      role: 'Développeur Full-stack',
+      description:
+        "Système complet de gestion des commandes de maillots de sport Stryd Panama. J'ai développé le frontend et le backend, en intégrant plusieurs services Cloudflare pour garantir la sécurité, l'évolutivité et l'efficacité.",
+      achievements:
+        "Mise en œuvre réussie d'une architecture basée sur Cloudflare Workers, utilisant D1 pour la base de données relationnelle, R2 pour le stockage de fichiers et Zero Trust pour la sécurité du panneau d'administration. De plus, j'ai intégré Cloudflare Turnstile pour la prévention des bots.",
+      technologies: technologiesItems.tshirtStryd,
+      githubUrl: urls.tshirtStryd.github,
+      liveUrl: urls.tshirtStryd.live,
+    },
     {
       title: 'Reservas Senderos Amados',
       image: reservasSenderosAmadosImage,
