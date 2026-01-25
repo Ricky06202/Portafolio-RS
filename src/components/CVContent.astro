@@ -1,16 +1,26 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
-import { aboutData, skillsData, experienceData, projectsData } from '../i18n/data'
+import { aboutData, skillsData, experienceData } from '../i18n/data'
+import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon/components'
 import profilePic from '@/assets/Profile.jpg'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const about = aboutData[lang]
-const skills = skillsData[lang]
-const experiences = experienceData[lang]
-const projects = projectsData[lang]
+const about = aboutData[lang as 'es' | 'en' | 'fr']
+const skills = skillsData[lang as 'es' | 'en' | 'fr']
+const experiences = experienceData[lang as 'es' | 'en' | 'fr']
+
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  .map((project) => ({
+    title: project.data.title,
+    role: project.data.role[lang as 'es' | 'en' | 'fr'],
+    description: project.data.description[lang as 'es' | 'en' | 'fr'],
+    technologies: project.data.technologies,
+  }));
 
 // Datos de contacto
 const contact = {

@@ -1,0 +1,37 @@
+{
+  "title": "Reservas Senderos Amados",
+  "image": "../../assets/ReservasSenderosAmados.png",
+  "imageAlt": {
+    "es": "Captura de pantalla de la aplicación Reservas Senderos Amados",
+    "en": "Screenshot of the Reservas Senderos Amados application",
+    "fr": "Capture d'écran de l'application Reservas Senderos Amados"
+  },
+  "role": {
+    "es": "Desarrollador Mobile Full-stack",
+    "en": "Mobile Full-stack Developer",
+    "fr": "Développeur Mobile Full-stack"
+  },
+  "description": {
+    "es": "Aplicación móvil diseñada para la administración de reservas de 'Senderos Amados'. Implementé un calendario interactivo que permite agregar, visualizar y eliminar reservas de manera eficiente, facilitando la gestión familiar de la propiedad.",
+    "en": "Mobile application designed for managing 'Senderos Amados' reservations. I implemented an interactive calendar that allows adding, viewing, and deleting reservations efficiently, facilitating family property management.",
+    "fr": "Application mobile conçue pour gérer les réservations de 'Senderos Amados'. J'ai implémenté un calendario interactif qui permet d'ajouter, de visualiser et de supprimer des réservations."
+  },
+  "achievements": {
+    "es": "Desarrollé una solución móvil intuitiva que optimiza el proceso de reserva para mi familia, utilizando tecnologías modernas como React Native y Expo para garantizar un rendimiento fluido en dispositivos Android.",
+    "en": "Developed an intuitive mobile solution that optimizes the booking process for my family, using modern technologies like React Native and Expo to ensure smooth performance on Android devices.",
+    "fr": "Développement d'une solution mobile intuitive qui optimise le processus de réservation familiale, en utilisant React Native et Expo."
+  },
+  "technologies": [
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "Tailwind",
+    "Drizzle",
+    "MySQL",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/reserva-senderosamados",
+  "liveUrl": "https://reservas-senderosamados.rsanjur.com/",
+  "order": 2
+}

@@ -1,0 +1,244 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { languages } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  const paths = [];
+
+  Object.keys(languages)
+    .filter((l) => l !== 'es')
+    .forEach((lang) => {
+      projects.forEach((project) => {
+        paths.push({
+          params: { lang, id: project.id },
+          props: { project },
+        });
+      });
+    });
+
+  return paths;
+}
+
+const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { data } = project;
+const imageAlt = data.imageAlt[lang as 'es' | 'en' | 'fr'];
+const role = data.role[lang as 'es' | 'en' | 'fr'];
+const description = data.description[lang as 'es' | 'en' | 'fr'];
+const achievements = data.achievements[lang as 'es' | 'en' | 'fr'];
+---
+
+<Layout title={`${data.title} | Ricardo Sanjur`}>
+  <div class="max-w-4xl mx-auto">
+    <!-- Botón Volver -->
+    <a
+      href={lang === 'es' ? '/' : `/${lang}`}
+      class="inline-flex items-center gap-2 text-neutral-400 hover:text-sky-400 transition-colors mb-8 group"
+    >
+      <Icon name="lucide:arrow-left" class="size-5 transition-transform group-hover:-translate-x-1" />
+      {lang === 'es' ? 'Volver al inicio' : lang === 'fr' ? 'Retour à l\'accueil' : 'Back to home'}
+    </a>
+
+    <div class="grid grid-cols-1 gap-12">
+      <!-- Imagen y Título -->
+      <section class="reveal">
+        <div 
+          id="zoom-container"
+          class="relative group cursor-zoom-in rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900/50 shadow-2xl aspect-video mb-8"
+        >
+          <img
+            src={data.image.src}
+            alt={imageAlt}
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            transition:name={`project-image-${project.id}`}
+            id="project-main-image"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent pointer-events-none"></div>
+          
+          <!-- Badge de Zoom -->
+          <div class="absolute bottom-6 right-6 p-3 rounded-full bg-neutral-900/80 text-white border border-neutral-700 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <Icon name="lucide:maximize-2" class="size-6" />
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h1 
+              class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter"
+              transition:name={`project-title-${project.id}`}
+            >
+              {data.title}
+            </h1>
+            <p class="text-sky-400 font-bold uppercase tracking-widest text-sm mb-2">
+              {role}
+            </p>
+          </div>
+
+          <div class="flex gap-3">
+            {data.githubUrl && (
+              <a
+                href={data.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 text-white hover:text-sky-400 border border-neutral-800 hover:border-sky-500/30 transition-all font-bold text-sm shadow-lg"
+              >
+                <Icon name="simple-icons:github" class="size-5" />
+                GitHub
+              </a>
+            )}
+            {data.liveUrl && (
+              <a
+                href={data.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700 transition-all font-bold text-sm shadow-lg shadow-sky-600/20"
+              >
+                <Icon name="lucide:external-link" class="size-5" />
+                {lang === 'es' ? 'Sitio Web' : 'Live Site'}
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <!-- Información Detallada -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-10 reveal">
+          <!-- Descripción -->
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <Icon name="lucide:info" class="size-5 text-sky-400" />
+              {lang === 'es' ? 'Sobre el proyecto' : lang === 'fr' ? 'À propos du projet' : 'About the project'}
+            </h2>
+            <p class="text-neutral-400 leading-relaxed text-lg">
+              {description}
+            </p>
+          </section>
+
+          <!-- Logros -->
+          <section>
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <Icon name="lucide:trophy" class="size-5 text-sky-400" />
+              {lang === 'es' ? 'Logros clave' : lang === 'fr' ? 'Réalisations clés' : 'Key achievements'}
+            </h2>
+            <div class="p-6 rounded-2xl bg-neutral-900/30 border border-neutral-800/50 text-neutral-400 leading-relaxed italic">
+              {achievements}
+            </div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8 reveal">
+          <!-- Tecnologías -->
+          <section>
+            <h2 class="text-lg font-bold text-white mb-4 flex items-center gap-2 uppercase tracking-wider text-xs">
+              <Icon name="lucide:code-2" class="size-4 text-sky-400" />
+              {t('projects.tech')}
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {data.technologies.map((tech) => (
+                <span class="px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <!-- Detalles rápidos -->
+          <section class="p-6 rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800">
+            <h2 class="text-xs font-black text-neutral-500 uppercase tracking-[0.2em] mb-4">
+              {lang === 'es' ? 'Detalles Rápidos' : 'Quick Details'}
+            </h2>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-sm text-neutral-400">
+                <Icon name="lucide:calendar" class="size-4 text-sky-400" />
+                <span>2024 - 2025</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-400">
+                <Icon name="lucide:user" class="size-4 text-sky-400" />
+                <span>{role}</span>
+              </li>
+              <li class="flex items-center gap-3 text-sm text-neutral-400">
+                <Icon name="lucide:check-circle" class="size-4 text-sky-400" />
+                <span>{lang === 'es' ? 'Completado' : 'Completed'}</span>
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Imagen -->
+  <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm cursor-zoom-out p-4 md:p-12 items-center justify-center transition-all duration-300 opacity-0">
+    <button id="close-modal" class="absolute top-6 right-6 p-3 rounded-full bg-neutral-800 text-white hover:text-sky-400 transition-colors z-[101]">
+      <Icon name="lucide:x" class="size-8" />
+    </button>
+    <img id="modal-image" src="" alt="" class="max-w-full max-h-full rounded-xl shadow-2xl object-contain transition-transform duration-500 scale-90" />
+  </div>
+
+</Layout>
+
+<script>
+  function setupModal() {
+    const zoomContainer = document.getElementById('zoom-container');
+    const mainImage = document.getElementById('project-main-image') as HTMLImageElement;
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image') as HTMLImageElement;
+    const closeModal = document.getElementById('close-modal');
+
+    if (!zoomContainer || !mainImage || !modal || !modalImg) return;
+
+    const openModal = () => {
+      modalImg.src = mainImage.src;
+      modalImg.alt = mainImage.alt;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      // Forzar reflujo
+      void modal.offsetWidth;
+      
+      modal.classList.add('opacity-100');
+      modal.classList.remove('opacity-0');
+      modalImg.classList.add('scale-100');
+      modalImg.classList.remove('scale-90');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const close = () => {
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      modalImg.classList.remove('scale-100');
+      modalImg.classList.add('scale-90');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 300);
+    };
+
+    zoomContainer.addEventListener('click', openModal);
+
+    modal.addEventListener('click', close);
+    closeModal?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      close();
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  }
+
+  // Ejecutar en carga y después de transiciones
+  setupModal();
+  document.addEventListener('astro:after-swap', setupModal);
+</script>

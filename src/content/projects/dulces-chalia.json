@@ -1,0 +1,33 @@
+{
+  "title": "Dulces Chalia",
+  "image": "../../assets/DulcesChalia.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Dulces Chalia",
+    "en": "Screenshot of Dulces Chalia",
+    "fr": "Capture d'écran de Dulces Chalia"
+  },
+  "role": {
+    "es": "Desarrollador Frontend",
+    "en": "Frontend Developer",
+    "fr": "Développeur Frontend"
+  },
+  "description": {
+    "es": "Proyecto web para promocionar los productos de repostería de 'Dulces Chalia', incluyendo pasteles de boda, cumpleaños, galletas decoradas y flores de azúcar. La página cuenta con descripciones y una galería de los productos.",
+    "en": "Web project to promote pastry products including wedding cakes and cookies.",
+    "fr": "Projet web pour promouvoir les produits de pâtisserie."
+  },
+  "achievements": {
+    "es": "Digitalicé el catálogo de productos de repostería, creando una vitrina virtual que permite a los clientes ver la calidad y el arte de los dulces, facilitando la decisión de compra y el contacto.",
+    "en": "Digitized the product catalog creating a virtual showcase.",
+    "fr": "Numérisation du catalogue de produits."
+  },
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/Dulces-Chalia",
+  "liveUrl": "http://dulceschalia.com",
+  "order": 7
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Amiguitos Monederos",
+  "image": "../../assets/Amiguitos Monederos.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del juego Amiguitos Monederos",
+    "en": "Screenshot of the game Amiguitos Monederos",
+    "fr": "Capture d'écran du jeu Amiguitos Monederos"
+  },
+  "role": {
+    "es": "Desarrollador de Videojuegos",
+    "en": "Game Developer",
+    "fr": "Développeur de Jeux Vidéo"
+  },
+  "description": {
+    "es": "Juego de plataformas desarrollado en Godot donde el jugador debe recolectar todas las monedas y vencer a todos los enemigos del nivel para ganar. El juego cuenta con 4 transformaciones: humano, ratón, gallina y sapo, cada una con habilidades únicas que el jugador puede utilizar estratégicamente.",
+    "en": "Platform game developed in Godot where the player must collect all coins and defeat all enemies to win. Features 4 transformations with unique abilities.",
+    "fr": "Jeu de plateforme développé sous Godot."
+  },
+  "achievements": {
+    "es": "Implementé un sistema de recursos personalizados en Godot para cada transformación, enemigo y tipo de moneda, lo que permitió crear componentes reutilizables que solo necesitaban reemplazar el recurso para convertirse en entidades diferentes, optimizando significativamente el desarrollo.",
+    "en": "Implemented a custom resource system in Godot for each transformation, enemy, and coin type, allowing reusable components.",
+    "fr": "Implémentation d'un système de ressources personnalisé."
+  },
+  "technologies": [
+    "Godot",
+    "GDScript",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/amiguitos-monederos",
+  "order": 4
+}

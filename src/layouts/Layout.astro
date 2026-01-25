@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import { ViewTransitions } from 'astro:transitions'
 import '../styles/global.css'
 import { getLangFromUrl } from '../i18n/utils'
 
@@ -39,6 +40,7 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack especializado en React, Next.js y Cloudflare." />
     <meta property="twitter:image" content="/og-image.png" />
+    <ViewTransitions />
   </head>
   <body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-sky-500/30 selection:text-sky-400 overflow-x-hidden">
     <!-- Fondo de malla sutil -->
@@ -51,36 +53,42 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
     </main>
     <Footer />
     
-    <script>
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+    <script is:inline>
+      const setupAnimations = () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Efecto Spotlight para tarjetas Bento
+        document.addEventListener('mousemove', (e) => {
+          const cards = document.querySelectorAll('.bento-card');
+          cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+          });
+        });
       };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.reveal').forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Efecto Spotlight para tarjetas Bento
-      document.addEventListener('mousemove', (e) => {
-        const cards = document.querySelectorAll('.bento-card');
-        cards.forEach((card) => {
-          const rect = (card as HTMLElement).getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
-          (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
+      // Ejecutar en la carga inicial y después de cada transición de página
+      setupAnimations();
+      document.addEventListener('astro:after-swap', setupAnimations);
     </script>
   </body>
 </html>

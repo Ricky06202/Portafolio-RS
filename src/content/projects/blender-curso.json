@@ -1,0 +1,32 @@
+{
+  "title": "Curso de Blender",
+  "image": "../../assets/BlenderCurso.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Curso de Blender",
+    "en": "Screenshot of Blender Course",
+    "fr": "Capture d'écran de Cours Blender"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Página web para compartir mi curso de Blender, donde puedes ver los capitulos que he realizado y te animo a aprender Blender en este proyecto aprendí a trabajar con un backend en Express.js, usando Drizzle para la base de datos MySQL y Passport para la autenticación de usuarios, permitiendo llevar el progreso de cada usuario con sus capitulos.",
+    "en": "Website to share my Blender course and track user progress.",
+    "fr": "Site web pour partager mon cours de Blender."
+  },
+  "achievements": {
+    "es": "Creé una página web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La página se subió a un servidor en cPanel y se puede acceder desde la url blender-curso.rsanjur.com",
+    "en": "Built a full web app with Express.js, Drizzle, and Passport for authentication.",
+    "fr": "Construction d'une application web complète avec Express.js et Drizzle."
+  },
+  "technologies": [
+    "Blender",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/blender-curso",
+  "liveUrl": "https://blender.rsanjur.com",
+  "order": 9
+}

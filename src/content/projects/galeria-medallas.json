@@ -1,0 +1,37 @@
+{
+  "title": "Galería de Medallas",
+  "image": "../../assets/Proyecto Medallas.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Galería de Medallas",
+    "en": "Screenshot of the Medal Gallery project",
+    "fr": "Capture d'écran du proyecto Galerie de Médailles"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Plataforma web diseñada para exhibir un catálogo digital de medallas personalizadas, con el objetivo de atraer a nuevos clientes y mostrar la calidad y variedad de los productos de la empresa. Desarrollé la aplicación de manera integral, incluyendo tanto el Backend como el Frontend.",
+    "en": "Web platform designed to showcase a digital catalog of custom medals, aiming to attract new clients and display the quality and variety of the company's products. I developed the entire application, including both Backend and Frontend.",
+    "fr": "Plateforme web conçue pour présenter un catalogue numérique de médailles personnalisées."
+  },
+  "achievements": {
+    "es": "Centralicé todo el catálogo de productos en un solo lugar, creando una herramienta visual y accesible que facilita a los clientes potenciales la exploración de opciones de diseño y los colores disponibles.",
+    "en": "Centralized the entire product catalog in one place, creating a visual and accessible tool that facilitates potential clients' exploration of design options and available colors.",
+    "fr": "Centralisation de tout le catalogue de produits en un seul endroit."
+  },
+  "technologies": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Prisma",
+    "PostgreSQL",
+    "Git",
+    "VS Code",
+    "Vercel"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/galeria-sanjur",
+  "liveUrl": "https://medallas.rsanjur.com",
+  "order": 3
+}

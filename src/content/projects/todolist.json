@@ -1,0 +1,33 @@
+{
+  "title": "Todolist",
+  "image": "../../assets/TodoList.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Todolist",
+    "en": "Screenshot of Todolist",
+    "fr": "Capture d'écran de Todolist"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Aplicación web para gestionar tareas y mantener el control de lo que se debe hacer. La aplicación permite crear, editar y eliminar tareas, marcar como completadas y filtrar por estados.",
+    "en": "Web application to manage tasks. Allows creating, editing, deleting, and filtering tasks.",
+    "fr": "Application web pour gérer les tâches."
+  },
+  "achievements": {
+    "es": "Creé una aplicación web completa con un backend en Express.js y un frontend en Astro con Tailwind CSS. La aplicación se subió a un servidor en cPanel y se puede acceder desde la url todolist.rsanjur.com",
+    "en": "Created a full web app with Express.js backend and Astro frontend.",
+    "fr": "Création d'une application web complète avec backend Express.js."
+  },
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/todo-list",
+  "liveUrl": "https://todolist.rsanjur.com",
+  "order": 8
+}

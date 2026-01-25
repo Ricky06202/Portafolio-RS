@@ -1,0 +1,38 @@
+{
+  "title": "T-Shirt Stryd",
+  "image": "../../assets/tshirt-stryd.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto T-Shirt Stryd",
+    "en": "Screenshot of the T-Shirt Stryd project",
+    "fr": "Capture d'écran du projet T-Shirt Stryd"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Sistema integral para la gestión de pedidos de camisetas deportivas de Stryd Panama. Desarrollé tanto el frontend como el backend, integrando múltiples servicios de Cloudflare para garantizar seguridad, escalabilidad y eficiencia.",
+    "en": "Comprehensive system for managing Stryd Panama sports jersey orders. I developed both the frontend and backend, integrating multiple Cloudflare services to ensure security, scalability, and efficiency.",
+    "fr": "Système complet de gestion des commandes de maillots de sport Stryd Panama. J'ai développé le frontend et le backend, en intégrant plusieurs services Cloudflare pour garantir la sécurité, l'évolutivité et l'efficacité."
+  },
+  "achievements": {
+    "es": "Implementé con éxito una arquitectura basada en Cloudflare Workers, utilizando D1 para la base de datos relacional, R2 para el almacenamiento de archivos y Zero Trust para la seguridad del panel administrativo. Además, integré Cloudflare Turnstile para la prevención de bots.",
+    "en": "Successfully implemented a Cloudflare Workers-based architecture, using D1 for the relational database, R2 for file storage, and Zero Trust for administrative panel security. Additionally, I integrated Cloudflare Turnstile for bot prevention.",
+    "fr": "Mise en œuvre réussie d'une architecture basée sur Cloudflare Workers, utilisant D1 pour la base de données relationnelle, R2 pour le stockage de fichiers et Zero Trust pour la sécurité du panneau d'administration. De plus, j'ai intégré Cloudflare Turnstile pour la prévention des bots."
+  },
+  "technologies": [
+    "Astro",
+    "React",
+    "Tailwind",
+    "Cloudflare D1",
+    "Cloudflare R2",
+    "Cloudflare Zero Trust",
+    "Cloudflare Turnstile (Captcha)",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/tshirt-stryd",
+  "liveUrl": "https://tshirt-stryd.ricardosanjurg.workers.dev",
+  "order": 1
+}

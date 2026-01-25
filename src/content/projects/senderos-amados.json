@@ -1,0 +1,33 @@
+{
+  "title": "Senderos Amados",
+  "image": "../../assets/SenderosAmados.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Senderos Amados",
+    "en": "Screenshot of Senderos Amados",
+    "fr": "Capture d'écran de Senderos Amados"
+  },
+  "role": {
+    "es": "Desarrollador Frontend",
+    "en": "Frontend Developer",
+    "fr": "Développeur Frontend"
+  },
+  "description": {
+    "es": "Página web promocional para el alquiler de casas en Boquete. El sitio presenta descripciones detalladas del lugar y una galería de imágenes para que los visitantes puedan conocer más sobre la propiedad.",
+    "en": "Promotional website for house rentals in Boquete. Features detailed descriptions and an image gallery.",
+    "fr": "Site promotionnel pour la location de maisons à Boquete."
+  },
+  "achievements": {
+    "es": "Creé una presencia online atractiva y funcional para la propiedad, facilitando la promoción y la captación de potenciales inquilinos a través de un diseño visualmente agradable y una navegación intuitiva.",
+    "en": "Created an attractive online presence facilitating promotion and tenant acquisition.",
+    "fr": "Création d'une présence en ligne attrayante."
+  },
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Git",
+    "VS Code"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/Senderos-Amados",
+  "liveUrl": "http://senderosamados.rsanjur.com",
+  "order": 6
+}
