@@ -5,13 +5,20 @@ import About from '../../components/About.astro'
 import Skills from '../../components/Skills.astro'
 import Projects from '../../components/Projects.astro'
 import Education from '../../components/Education.astro'
+import Experience from '../../components/Experience.astro'
+import Contact from '../../components/Contact.astro'
 import { languages } from '../../i18n/ui'
+import { Icon } from 'astro-icon/components'
+import { useTranslations, getLangFromUrl } from '../../i18n/utils'
 
 export function getStaticPaths() {
   return Object.keys(languages)
     .filter((lang) => lang !== 'es')
     .map((lang) => ({ params: { lang } }))
 }
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <Layout title="Portafolio | Ricardo Sanjur">
@@ -20,7 +27,21 @@ export function getStaticPaths() {
     <Hero />
     <About />
     <Skills />
+    <Experience />
     <Education />
+    <Contact />
+    <!-- Tile decorativo (Rocket) -->
+    <div class="col-span-12 lg:col-span-4 bento-card reveal flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border-sky-500/20 group">
+      <div class="size-20 rounded-full bg-sky-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+        <Icon name="lucide:rocket" class="size-10 text-sky-400" />
+      </div>
+      <h3 class="text-xl font-black text-white mb-2 uppercase tracking-tighter">
+        {t('rocket.title')}
+      </h3>
+      <p class="text-neutral-400 text-xs font-bold uppercase tracking-widest">
+        {t('rocket.subtitle')}
+      </p>
+    </div>
     <Projects />
   </div>
 </Layout>
