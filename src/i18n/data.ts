@@ -105,7 +105,7 @@ export const experienceData = {
     {
       company: 'Universidad Tecnológica de Panamá',
       role: 'Asistente de Investigación / Estudiante',
-      period: '2021 - 2025',
+      period: '2026 - Actualidad',
       description:
         'Participación en proyectos académicos complejos y colaboración en el desarrollo de herramientas internas para la facultad.',
     },
@@ -121,7 +121,7 @@ export const experienceData = {
     {
       company: 'Technological University of Panama',
       role: 'Research Assistant / Student',
-      period: '2021 - 2025',
+      period: '2026 - Present',
       description:
         'Participation in complex academic projects and collaboration in the development of internal tools for the faculty.',
     },
@@ -137,7 +137,7 @@ export const experienceData = {
     {
       company: 'Université Technologique du Panama',
       role: 'Assistant de Recherche / Étudiant',
-      period: '2021 - 2025',
+      period: '2026 - Present',
       description:
         "Participation à des projets académiques complexes et collaboration au développement d'outils internes pour la faculté.",
     },
