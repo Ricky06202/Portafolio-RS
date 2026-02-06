@@ -27,16 +27,7 @@ const databasesItems = [
   'SQLite (D1)',
   'Cloudflare R2 (Object Storage)',
 ]
-const toolsItems = [
-  'Cloudflare Workers',
-  'Cloudflare Zero Trust',
-  'Cloudflare Turnstile',
-  'Vercel',
-  'Git',
-  'VS Code',
-  'Notion',
-  'Godot',
-]
+const toolsItems = ['Cloudflare', 'Vercel', 'Git', 'VS Code', 'Notion', 'Godot']
 const osItems = ['Windows', 'Linux']
 
 export const skillsData = {
@@ -100,7 +91,7 @@ export const skillsData = {
     },
     "Systèmes d'Exploitation": { icon: 'lucide:laptop', items: osItems },
   },
-};
+}
 
 export const experienceData = {
   es: [
@@ -108,41 +99,47 @@ export const experienceData = {
       company: 'Freelance / Proyectos Personales',
       role: 'Desarrollador Full-stack',
       period: '2022 - Actualidad',
-      description: 'Desarrollo de aplicaciones web y móviles personalizadas para diversos clientes, utilizando tecnologías modernas como React, Next.js y Node.js.',
+      description:
+        'Desarrollo de aplicaciones web y móviles personalizadas para diversos clientes, utilizando tecnologías modernas como React, Next.js y Node.js.',
     },
     {
       company: 'Universidad Tecnológica de Panamá',
       role: 'Asistente de Investigación / Estudiante',
       period: '2021 - 2025',
-      description: 'Participación en proyectos académicos complejos y colaboración en el desarrollo de herramientas internas para la facultad.',
-    }
+      description:
+        'Participación en proyectos académicos complejos y colaboración en el desarrollo de herramientas internas para la facultad.',
+    },
   ],
   en: [
     {
       company: 'Freelance / Personal Projects',
       role: 'Full-stack Developer',
       period: '2022 - Present',
-      description: 'Development of custom web and mobile applications for various clients, using modern technologies such as React, Next.js, and Node.js.',
+      description:
+        'Development of custom web and mobile applications for various clients, using modern technologies such as React, Next.js, and Node.js.',
     },
     {
       company: 'Technological University of Panama',
       role: 'Research Assistant / Student',
       period: '2021 - 2025',
-      description: 'Participation in complex academic projects and collaboration in the development of internal tools for the faculty.',
-    }
+      description:
+        'Participation in complex academic projects and collaboration in the development of internal tools for the faculty.',
+    },
   ],
   fr: [
     {
       company: 'Freelance / Projets Personnels',
       role: 'Développeur Full-stack',
       period: '2022 - Présent',
-      description: 'Développement d\'applications web et mobiles personnalisées pour divers clients, utilisant des technologies modernes telles que React, Next.js et Node.js.',
+      description:
+        "Développement d'applications web et mobiles personnalisées pour divers clients, utilisant des technologies modernes telles que React, Next.js et Node.js.",
     },
     {
       company: 'Université Technologique du Panama',
       role: 'Assistant de Recherche / Étudiant',
       period: '2021 - 2025',
-      description: 'Participation à des projets académiques complexes et collaboration au développement d\'outils internes pour la faculté.',
-    }
-  ]
-};
+      description:
+        "Participation à des projets académiques complexes et collaboration au développement d'outils internes pour la faculté.",
+    },
+  ],
+}
