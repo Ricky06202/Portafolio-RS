@@ -1,0 +1,38 @@
+{
+  "title": "Creative Dev Toolbox",
+  "image": "../../assets/CreativeDevTool.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto Creative Dev Toolbox",
+    "en": "Screenshot of Creative Dev Toolbox project",
+    "fr": "Capture d'écran du projet Creative Dev Toolbox"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Caja de herramientas integral para desarrolladores que incluye formateador de código, probador de regex, generador de datos falsos y paletas de colores. Permite guardar frases inspiradoras en favoritos mediante una cuenta de usuario, optimizada para un despliegue ligero en CPanel usando SQLite.",
+    "en": "Comprehensive developer toolbox including code formatter, regex tester, fake data generator, and color palettes. Allows saving favorite inspirational quotes via user accounts, optimized for light deployment on CPanel using SQLite.",
+    "fr": "Boîte à outils complète pour développeurs comprenant un formateur de code, un testeur de regex, un générateur de données fictives et des palettes de couleurs."
+  },
+  "achievements": {
+    "es": "Estandaricé un flujo de trabajo entre Blazor y FastAPI que garantiza despliegues exitosos en CPanel. Implementé MudBlazor para una interfaz premium y utilicé SQLite para simplificar la persistencia de datos en entornos compartidos, superando retos de CORS y serialización.",
+    "en": "Standardized a workflow between Blazor and FastAPI ensuring successful CPanel deployments. Implemented MudBlazor for a premium UI and used SQLite to simplify data persistence in shared environments.",
+    "fr": "Standardisation d'un flux de travail entre Blazor et FastAPI garantissant des déploiements réussis sur CPanel."
+  },
+  "technologies": [
+    "C#",
+    "Blazor",
+    "MudBlazor",
+    "Python",
+    "FastAPI",
+    "SQLite",
+    "CPanel",
+    "TailwindCSS",
+    "Git"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/Creative-Dev-Toolbox",
+  "liveUrl": "https://creativedevtool.rsanjur.com",
+  "order": 11
+}
