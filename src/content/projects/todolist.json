@@ -21,13 +21,8 @@
     "en": "Created a full web app with Express.js backend and Astro frontend.",
     "fr": "Création d'une application web complète avec backend Express.js."
   },
-  "technologies": [
-    "React",
-    "TypeScript",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["React", "TypeScript", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/todo-list",
   "liveUrl": "https://todolist.rsanjur.com",
-  "order": 8
+  "order": 2
 }

@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 
 const allProjects = await getCollection('projects');
 const projects = allProjects
-  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+  .sort((a, b) => (b.data.order || 0) - (a.data.order || 0))
   .map((project) => ({
     id: project.id,
     title: project.data.title,

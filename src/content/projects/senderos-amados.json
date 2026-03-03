@@ -21,13 +21,8 @@
     "en": "Created an attractive online presence facilitating promotion and tenant acquisition.",
     "fr": "Création d'une présence en ligne attrayante."
   },
-  "technologies": [
-    "React",
-    "TypeScript",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["React", "TypeScript", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/Senderos-Amados",
   "liveUrl": "http://senderosamados.rsanjur.com",
-  "order": 6
+  "order": 4
 }

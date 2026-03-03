@@ -21,12 +21,7 @@
     "en": "Implemented a TileMap system for visual level design and a random replacement system for difficulty scaling.",
     "fr": "Implémentation d'un système TileMap."
   },
-  "technologies": [
-    "Godot",
-    "GDScript",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["Godot", "GDScript", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/Destruir-Bloques-2D",
   "liveUrl": "https://rickygamerpty.itch.io/destruir-bloques-2d",
   "order": 5

@@ -8,6 +8,7 @@ const lenguagesProgItems = [
   'TypeScript',
   'JavaScript',
   'Python',
+  'C#',
   'Java',
   'GDScript',
   'C',
@@ -16,6 +17,8 @@ const frameworksItems = [
   'Next.js',
   'React',
   'Astro',
+  'Blazor',
+  'FastAPI',
   'Hono',
   'Express.js',
   'React Native',
@@ -27,7 +30,15 @@ const databasesItems = [
   'SQLite (D1)',
   'Cloudflare R2 (Object Storage)',
 ]
-const toolsItems = ['Cloudflare', 'Vercel', 'Git', 'VS Code', 'Notion', 'Godot']
+const toolsItems = [
+  'Cloudflare',
+  'Vercel',
+  'CPanel',
+  'Git',
+  'VS Code',
+  'Notion',
+  'Godot',
+]
 const osItems = ['Windows', 'Linux']
 
 export const skillsData = {

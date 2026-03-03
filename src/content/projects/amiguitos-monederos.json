@@ -21,12 +21,7 @@
     "en": "Implemented a custom resource system in Godot for each transformation, enemy, and coin type, allowing reusable components.",
     "fr": "Implémentation d'un système de ressources personnalisé."
   },
-  "technologies": [
-    "Godot",
-    "GDScript",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["Godot", "GDScript", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/amiguitos-monederos",
-  "order": 4
+  "order": 6
 }

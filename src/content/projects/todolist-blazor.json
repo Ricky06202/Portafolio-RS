@@ -1,0 +1,36 @@
+{
+  "title": "TodoList Blazor",
+  "image": "../../assets/TodoListBlazor.png",
+  "imageAlt": {
+    "es": "Captura de pantalla del proyecto TodoList Blazor",
+    "en": "Screenshot of TodoList Blazor project",
+    "fr": "Capture d'écran du projet TodoList Blazor"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Aplicación de lista de tareas que representa un punto de inflexión en mi carrera al integrar un stack tecnológico innovador: Blazor WebAssembly para el frontend y Python FastAPI para el backend, todo desplegado exitosamente en un entorno CPanel.",
+    "en": "Task list application representing a career milestone by integrating an innovative stack: Blazor WebAssembly for the frontend and Python FastAPI for the backend, successfully deployed on CPanel.",
+    "fr": "Application de liste de tâches représentant un tournant dans ma carrière en intégrant une stack innovante : Blazor WebAssembly pour le frontend et Python FastAPI pour le backend."
+  },
+  "achievements": {
+    "es": "Logré demostrar la viabilidad de combinar tecnologías de Microsoft (.NET) y Python en un servidor compartido CPanel, superando las limitaciones convencionales de despliegue y abriendo nuevas posibilidades para mis futuros proyectos.",
+    "en": "Successfully demonstrated the viability of combining Microsoft (.NET) and Python technologies on a shared CPanel server, overcoming conventional deployment limitations.",
+    "fr": "Démonstration réussie de la viabilité de combiner les technologies Microsoft (.NET) et Python sur un serveur CPanel partagé."
+  },
+  "technologies": [
+    "C#",
+    "Blazor WASM",
+    "Python",
+    "FastAPI",
+    "CPanel",
+    "TailwindCSS",
+    "Git"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/TodoListBlazor",
+  "liveUrl": "https://todolistblazor.rsanjur.com",
+  "order": 10
+}

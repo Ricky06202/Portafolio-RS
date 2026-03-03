@@ -21,12 +21,8 @@
     "en": "Built a full web app with Express.js, Drizzle, and Passport for authentication.",
     "fr": "Construction d'une application web complète avec Express.js et Drizzle."
   },
-  "technologies": [
-    "Blender",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["Blender", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/blender-curso",
   "liveUrl": "https://blender.rsanjur.com",
-  "order": 9
+  "order": 1
 }

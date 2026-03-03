@@ -21,13 +21,8 @@
     "en": "Digitized the product catalog creating a virtual showcase.",
     "fr": "Numérisation du catalogue de produits."
   },
-  "technologies": [
-    "React",
-    "TypeScript",
-    "Git",
-    "VS Code"
-  ],
+  "technologies": ["React", "TypeScript", "Git", "VS Code"],
   "githubUrl": "https://github.com/Ricky06202/Dulces-Chalia",
   "liveUrl": "http://dulceschalia.com",
-  "order": 7
+  "order": 3
 }
