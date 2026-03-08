@@ -1,0 +1,33 @@
+{
+  "title": "DevNest",
+  "image": "../../assets/DevNest.png",
+  "imageAlt": {
+    "es": "Captura de pantalla de la red social DevNest",
+    "en": "Screenshot of DevNest social network",
+    "fr": "Capture d'écran du réseau social DevNest"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack",
+    "en": "Full-stack Developer",
+    "fr": "Développeur Full-stack"
+  },
+  "description": {
+    "es": "Red social para desarrolladores donde publican proyectos, conectan entre sí y suben devlogs para hacer seguimiento de sus avances. Incluye una sección de hilos para conversar y resolver dudas de programación.",
+    "en": "Social network for developers to publish projects, connect, and upload devlogs to track progress. Includes a threads section for discussions and solving programming questions.",
+    "fr": "Réseau social pour les développeurs afin de publier des projets, se connecter et télécharger des devlogs pour suivre les progrès. Comprend une section de fils de discussion pour discuter et résoudre des questions de programmation."
+  },
+  "achievements": {
+    "es": "Aprendí a optimizar el almacenamiento alojando imágenes directamente en carpetas de cPanel, evitando subidas en base64 a la base de datos. Además, implementé un sistema de reputación basado en 'fueguitos', ganados mediante aportes en devlogs.",
+    "en": "Learned to optimize storage by hosting images directly in cPanel folders, avoiding base64 uploads to the database. Also implemented a reputation system based on 'fires' earned through devlogs.",
+    "fr": "Appris à optimiser le stockage en hébergeant des images directement dans les dossiers cPanel, évitant les téléchargements en base64. Mise en œuvre d'un système de réputation basé sur des 'feux' gagnés via les devlogs."
+  },
+  "technologies": [
+    "Blazor WASM",
+    "FastAPI",
+    "MySQL",
+    "MudBlazor",
+    "cPanel"
+  ],
+  "githubUrl": "https://github.com/Ricky06202/DevNest",
+  "order": 11
+}
