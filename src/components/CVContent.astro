@@ -13,8 +13,12 @@ const skills = skillsData[lang as 'es' | 'en' | 'fr']
 const experiences = experienceData[lang as 'es' | 'en' | 'fr']
 
 const allProjects = await getCollection('projects');
-const projects = allProjects
-  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+// Proyectos destacados seleccionados manualmente para el CV (los más fuertes).
+// Ajusta esta lista con los slugs (nombres de archivo sin .json) que prefieras.
+const featuredSlugs = ['devnest', 'tshirt-stryd', 'galeria-medallas'];
+const projects = featuredSlugs
+  .map((slug) => allProjects.find((project) => project.id === slug))
+  .filter((project): project is NonNullable<typeof project> => project !== undefined)
   .map((project) => ({
     title: project.data.title,
     role: project.data.role[lang as 'es' | 'en' | 'fr'],
@@ -137,7 +141,7 @@ const contact = {
           {t('projects.title')}
         </h2>
         <div class="grid grid-cols-1 gap-6">
-          {projects.slice(0, 3).map((project) => (
+          {projects.map((project) => (
             <div>
               <h3 class="font-bold text-slate-900 text-sm mb-1">{project.title}</h3>
               <p class="text-[10px] font-bold text-sky-600 uppercase mb-2">{project.role}</p>
