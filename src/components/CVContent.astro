@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
-import { aboutData, skillsData, experienceData } from '../i18n/data'
+import { aboutData, skillsData, experienceData, web3ProjectsData } from '../i18n/data'
+import { PROFILE } from '../data/profile'
 import { getCollection } from 'astro:content'
 import { Icon } from 'astro-icon/components'
 import profilePic from '@/assets/Profile.jpg'
@@ -11,6 +12,18 @@ const t = useTranslations(lang)
 const about = aboutData[lang as 'es' | 'en' | 'fr']
 const skills = skillsData[lang as 'es' | 'en' | 'fr']
 const experiences = experienceData[lang as 'es' | 'en' | 'fr']
+
+const web3Projects = web3ProjectsData[lang as 'es' | 'en' | 'fr'].map((project) => ({
+  title: project.title,
+  description: project.description,
+  technologies: project.technologies,
+  status: project.status,
+}))
+const statusCv: Record<string, string> = {
+  live: t('web3.statusLive'),
+  building: t('web3.statusBuilding'),
+  soon: t('web3.statusSoon'),
+}
 
 const allProjects = await getCollection('projects');
 // Proyectos destacados seleccionados manualmente para el CV (los más fuertes).
@@ -95,6 +108,10 @@ const contact = {
         <Icon name="lucide:github" class="size-4 text-sky-600" />
         {contact.github}
       </div>
+      <div class="flex items-center gap-2">
+        <Icon name="lucide:shield-half" class="size-4 text-sky-600" />
+        {PROFILE.cryptoEmail}
+      </div>
     </div>
   </header>
 
@@ -110,6 +127,32 @@ const contact = {
         <p class="text-slate-700 text-sm leading-relaxed">
           {about}
         </p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded bg-violet-50 text-violet-700 border border-violet-200">{t('badge.openWeb3')}</span>
+          <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+            {lang === 'es' ? 'Disponible para trabajo remoto (UTC-5)' : lang === 'fr' ? 'Disponible en remote (UTC-5)' : 'Available for Remote Work (UTC-5)'}
+          </span>
+        </div>
+      </section>
+
+      <!-- Proyectos Web3 -->
+      <section>
+        <h2 class="text-lg font-black uppercase tracking-widest text-slate-900 mb-6 flex items-center gap-2">
+          <span class="w-8 h-1 bg-violet-600"></span>
+          {t('web3.title')}
+        </h2>
+        <div class="grid grid-cols-1 gap-4">
+          {web3Projects.map((project) => (
+            <div class="border-l-2 border-violet-600 pl-3">
+              <div class="flex justify-between items-start gap-2">
+                <h3 class="font-bold text-slate-900 text-sm">{project.title}</h3>
+                <span class="text-[9px] font-black uppercase tracking-widest text-violet-700 shrink-0">{statusCv[project.status]}</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-0.5">{project.description}</p>
+              <p class="text-[10px] font-bold text-slate-500 mt-1 font-mono">{project.technologies.join(' · ')}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <!-- Experiencia -->

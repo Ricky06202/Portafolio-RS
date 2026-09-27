@@ -2,18 +2,20 @@
 import { Icon } from 'astro-icon/components'
 import profilePic from '@/assets/Profile.jpg'
 import { useTranslations, getLangFromUrl } from '../i18n/utils'
+import { PROFILE } from '../data/profile'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
 ---
 
 <section
-  class="col-span-12 md:col-span-8 bento-card flex flex-col md:flex-row items-center gap-8 reveal"
+  class="col-span-12 md:col-span-8 bento-card flex flex-col lg:flex-row items-center gap-8 reveal web3-gradient-border"
 >
   <!-- Contenedor de la Imagen -->
   <div class="shrink-0">
     <div class="relative group">
-      <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+      <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-400 to-emerald-500 rounded-full blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
       <img
         src={profilePic.src}
         alt="Foto de Ricardo Sanjur"
@@ -22,26 +24,80 @@ const t = useTranslations(lang)
     </div>
   </div>
   <!-- Contenedor del Texto -->
-  <div class="text-center md:text-left flex-1">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 mb-4">
-      <span class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+  <div class="text-center lg:text-left flex-1 min-w-0">
+    <div class="flex flex-wrap justify-center lg:justify-start gap-2 mb-4">
+      <span
+        class="glow-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-[10px] font-bold text-violet-300 uppercase tracking-widest"
+      >
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
+        </span>
+        {t('badge.openWeb3')}
       </span>
-      <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest">{t('hero.status')}</span>
+      <span
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-colors"
+        data-availability={String(PROFILE.available)}
+        data-label-available={t('badge.available')}
+        data-label-busy={t('badge.busy')}
+      >
+        <span class="avail-dot size-2 rounded-full"></span>
+        <span class="avail-text"></span>
+      </span>
     </div>
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3">
-      Ricardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-400">Sanjur</span>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3 font-display">
+      Ricardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400">Sanjur</span>
     </h1>
-    <p class="text-lg md:text-xl text-neutral-400 font-medium mb-6">
-      {t('hero.role')}
+    <p class="text-xl md:text-2xl text-white font-bold mb-1">
+      {t('hero.headline')}
     </p>
-    <a
-      href={lang === 'es' ? '/cv' : `/${lang}/cv`}
-      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-500 text-neutral-950 font-bold text-sm hover:bg-sky-400 transition-all hover:scale-105 shadow-lg shadow-sky-500/20"
-    >
-      <Icon name="lucide:file-text" class="size-4" />
-      {t('hero.download')}
-    </a>
+    <p class="text-lg md:text-xl text-neutral-400 font-medium mb-3">
+      {t('hero.sub')}
+    </p>
+    <p class="text-xs md:text-sm text-neutral-500 font-mono mb-6 tracking-wide">
+      {t('hero.tagline')}
+    </p>
+    <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+      <a
+        href="#web3-projects"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-violet-600/25"
+      >
+        <Icon name="lucide:blocks" class="size-4" />
+        {t('hero.ctaProjects')}
+      </a>
+      <a
+        href={cvHref}
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-500 text-neutral-950 font-bold text-sm hover:bg-sky-400 transition-all hover:scale-105 shadow-lg shadow-sky-500/20"
+      >
+        <Icon name="lucide:file-text" class="size-4" />
+        {t('hero.ctaCv')}
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-700 text-neutral-200 font-bold text-sm hover:border-emerald-500/60 hover:text-emerald-400 transition-all hover:scale-105"
+      >
+        <Icon name="lucide:handshake" class="size-4" />
+        {t('hero.ctaHire')}
+      </a>
+    </div>
   </div>
 </section>
+
+<script>
+  // Semáforo de disponibilidad desde profile.ts (sin re-render en build)
+  const badge = document.querySelector('[data-availability]')
+  if (badge) {
+    const available = badge.getAttribute('data-availability') === 'true'
+    const dot = badge.querySelector('.avail-dot')
+    const text = badge.querySelector('.avail-text')
+    if (dot) dot.className += available ? ' bg-emerald-400 animate-pulse' : ' bg-red-500'
+    if (text) {
+      text.textContent = available
+        ? badge.getAttribute('data-label-available') || ''
+        : badge.getAttribute('data-label-busy') || ''
+    }
+    badge.className += available
+      ? ' border-emerald-500/30 text-emerald-300 bg-emerald-500/5'
+      : ' border-red-500/30 text-red-300 bg-red-500/5'
+  }
+</script>

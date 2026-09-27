@@ -20,10 +20,17 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack"
+      content="Ricardo Sanjur — Full-Stack Web3 Engineer. Crypto payment systems, webhook infrastructure (Binance Pay/Coinbase) and blockchain integrations. TypeScript, Rust, Go, Next.js, Hono."
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Display para títulos (Space Grotesk), mono para código/direcciones (JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -31,14 +38,14 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack especializado en React, Next.js y Cloudflare." />
+    <meta property="og:description" content="Full-Stack Web3 Engineer — crypto payment systems, webhook infrastructure and blockchain integrations." />
     <meta property="og:image" content="/og-image.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content="Portafolio de Ricardo Sanjur, Desarrollador Full-stack especializado en React, Next.js y Cloudflare." />
+    <meta property="twitter:description" content="Full-Stack Web3 Engineer — crypto payment systems, webhook infrastructure and blockchain integrations." />
     <meta property="twitter:image" content="/og-image.png" />
     <ViewTransitions />
   </head>

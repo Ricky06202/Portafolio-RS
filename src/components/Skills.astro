@@ -5,34 +5,54 @@ import { skillsData } from '../i18n/data'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const skills = skillsData[lang]
+const skills = skillsData[lang as 'es' | 'en' | 'fr']
 ---
 
 <section
   id="skills"
-  class="col-span-12 md:col-span-6 bento-card reveal"
+  class="col-span-12 bento-card reveal"
 >
-  <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-2">
+  <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-2 font-display">
     <Icon name="lucide:zap" class="size-6 text-sky-400" />
     {t('skills.title')}
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {
-      Object.entries(skills).map(([category, { icon, items }]) => (
-        <div class="space-y-3">
-          <h3 class="text-sm font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-2">
-            <Icon name={icon} class="size-4" /> {category}
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            {items.map((skill) => (
-              <span class="bg-neutral-800/50 text-neutral-300 text-xs font-medium px-2.5 py-1 rounded-lg border border-neutral-700/50 hover:border-sky-500/30 hover:bg-sky-500/5 transition-all duration-300 cursor-default">
-                {skill}
-              </span>
-            ))}
+      Object.entries(skills).map(([category, { icon, items }], i) => {
+        const isWeb3 = i === 0
+        return (
+          <div class="space-y-3">
+            <h3
+              class:list={[
+                'text-sm font-bold uppercase tracking-wider flex items-center gap-2',
+                isWeb3 ? 'text-violet-300' : 'text-neutral-500',
+              ]}
+            >
+              <Icon name={icon} class:list={['size-4', isWeb3 && 'text-violet-400']} /> {category}
+              {isWeb3 && (
+                <span class="glow-badge px-1.5 py-0.5 rounded bg-violet-500/15 border border-violet-500/30 text-[8px] font-black text-violet-300">
+                  ★
+                </span>
+              )}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {items.map((skill) => (
+                <span
+                  class:list={[
+                    'text-xs font-medium px-2.5 py-1 rounded-lg border transition-all duration-300 cursor-default',
+                    isWeb3
+                      ? 'bg-violet-500/5 text-violet-200 border-violet-500/25 hover:border-violet-400/50 hover:bg-violet-500/10'
+                      : 'bg-neutral-800/50 text-neutral-300 border-neutral-700/50 hover:border-sky-500/30 hover:bg-sky-500/5',
+                  ]}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      ))
+        )
+      })
     }
   </div>
 </section>

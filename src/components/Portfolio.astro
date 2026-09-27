@@ -1,0 +1,44 @@
+---
+/**
+ * Cuerpo compartido del portafolio: index.astro y [lang]/index.astro renderizan
+ * ESTO (una sola fuente de verdad para el orden de secciones).
+ */
+import Hero from './Hero.astro'
+import About from './About.astro'
+import Web3Projects from './Web3Projects.astro'
+import Services from './Services.astro'
+import Skills from './Skills.astro'
+import Experience from './Experience.astro'
+import Education from './Education.astro'
+import Contact from './Contact.astro'
+import Projects from './Projects.astro'
+import { Icon } from 'astro-icon/components'
+import { useTranslations, getLangFromUrl } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<div class="grid grid-cols-12 gap-6">
+  <Hero />
+  <About />
+  <Web3Projects />
+  <Services />
+  <Skills />
+  <Experience />
+  <Education />
+  <Contact />
+  <!-- Tile decorativo (Rocket) -->
+  <div class="col-span-12 lg:col-span-4 bento-card reveal flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-sky-500/10 to-cyan-500/10 border-sky-500/20 group">
+    <div class="size-20 rounded-full bg-sky-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+      <Icon name="lucide:rocket" class="size-10 text-sky-400" />
+    </div>
+    <h3 class="text-xl font-black text-white mb-2 uppercase tracking-tighter font-display">
+      {t('rocket.title')}
+    </h3>
+    <p class="text-neutral-400 text-xs font-bold uppercase tracking-widest">
+      {t('rocket.subtitle')}
+    </p>
+  </div>
+  <Projects />
+</div>

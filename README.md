@@ -1,46 +1,52 @@
-# Astro Starter Kit: Basics
+# Portafolio RS — Ricardo Sanjur
+
+Portafolio **Full-Stack Web3 Engineer** (Astro 5 + Tailwind 4, i18n es/en/fr).
+Publicado vía Cloudflare Workers (`portafolio-rs`).
+
+## Desarrollo
 
 ```sh
-bun create astro@latest -- --template basics
+bun install
+bun dev        # http://localhost:4321
+bun run build  # dist/ estático
+bun run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Desplegar: `wrangler deploy` (usa `wrangler.jsonc`; assets desde `dist/`).
 
-## 🚀 Project Structure
+## Personalización (puntos únicos de cambio)
 
-Inside of your Astro project, you'll see the following folders and files:
+| Quiero cambiar… | Editar |
+| --- | --- |
+| Emails, GitHub, LinkedIn, **wallet Solana**, repos Web3, disponibilidad | `src/data/profile.ts` — TODO |
+| Textos de datos (sobre mí, skills, proyectos Web3, servicios, experiencia) | `src/i18n/data.ts` |
+| Etiquetas/cadenas de UI (nav, títulos de sección, CTAs) | `src/i18n/ui.ts` (3 bloques: es/en/fr — añade la clave en los tres) |
+| Proyectos normales (Foundation) | `src/content/projects/*.json` (`order` alto = primero; `projects-metadata.json` lleva el contador) |
+| Orden de secciones del home | `src/components/Portfolio.astro` |
+| Colores/efectos Web3 (glow, gradiente, toggle) | `src/styles/global.css` |
+| CV imprimible (1 página, print → PDF) | `src/components/CVContent.astro` — botón «Imprimir / Guardar PDF» |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+### Activar la sección de wallet
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+`profile.ts → solanaWallet` está en `''` (la sección se oculta en producción).
+Pega tu **dirección de recepción** (nunca una clave privada; idealmente un
+wallet dedicado solo a recibir). El QR se genera en cliente con `qrcode`, sin
+servicios externos.
 
-## 🧞 Commands
+### Enlazar los repos Web3 cuando sean públicos
 
-All commands are run from the root of the project, from a terminal:
+`profile.ts → web3Repos.binancePayWebhook / analyticsDashboard`: mientras estén
+en `''`, las tarjetas muestran el estado honesto (`building` / `soon`) y no
+generan botones muertos. Al publicar cada repo, pon la URL y cambia `status` en
+`src/i18n/data.ts` a `live` si ya funciona en producción.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+### Toggle Web3/Web2
 
-## 👀 Want to learn more?
+`Header.astro` + regla CSS `:root[data-view='web2'] .web3-only`. Las secciones
+marcadas `web3-only` (proyectos Web3, servicios, wallet, links de nav) se
+ocultan sin recargar; la preferencia vive en `localStorage`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Notas de honestidad
+
+Los estados de los proyectos Web3 (`building`/`soon`/`live`) son la fuente de
+verdad visible: no se publican botones de demo/repo que no funcionen.
