@@ -1,6 +1,8 @@
 {
   // Worker de solo-assets para Cloudflare (el build genera dist/)
   "name": "portafolio-rs",
+  // Cuenta donde vive el worker (wrangler detecta 2 cuentas con tu login)
+  "account_id": "66f8699b20c28ad6be430da2eaa98d34",
   "compatibility_date": "2026-09-01",
   "assets": {
     "directory": "./dist"
