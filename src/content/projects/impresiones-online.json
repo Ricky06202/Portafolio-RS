@@ -1,0 +1,27 @@
+{
+  "title": "Impresiones Online",
+  "image": "../../assets/impresiones-online.png",
+  "imageAlt": {
+    "es": "Asistente de subida de PDF de Impresiones Online",
+    "en": "Impresiones Online PDF upload wizard",
+    "fr": "Assistant d'envoi de PDF de Impresiones Online"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack (producto propio)",
+    "en": "Full-stack Developer (own product)",
+    "fr": "Développeur Full-stack (produit propre)"
+  },
+  "description": {
+    "es": "Servicio de impresión remota para oficina: el cliente sube su PDF (hasta 25 MB), elige opciones y paga con Yappy, PayPal o efectivo; el panel de la oficina ve la cola de trabajos en tiempo real por WebSockets.",
+    "en": "Remote print service for an office: customers upload a PDF (up to 25 MB), pick options and pay with Yappy, PayPal or cash; the office dashboard watches the job queue in real time over WebSockets.",
+    "fr": "Service d'impression à distance pour bureau : le client téléverse un PDF (jusqu'à 25 Mo), choisit les options et paie avec Yappy, PayPal ou espèces ; le tableau de bord suit la file en temps réel par WebSockets."
+  },
+  "achievements": {
+    "es": "Login de Google con lista blanca (better-auth + D1); cola en vivo con Durable Objects; archivos en R2; historial, estado y descarga de PDF en /admin; pasarela lista para conciliar pagos.",
+    "en": "Google login with an allowlist (better-auth + D1); live queue with Durable Objects; files in R2; history, status and PDF download in /admin; gateway ready to reconcile payments.",
+    "fr": "Connexion Google avec liste blanche (better-auth + D1) ; file en direct avec Durable Objects ; fichiers dans R2 ; historique, statut et téléchargement PDF dans /admin ; passerelle prête à concilier les paiements."
+  },
+  "technologies": ["TypeScript", "Hono", "Cloudflare Workers", "D1", "R2", "Durable Objects", "WebSocket", "better-auth"],
+  "liveUrl": "https://impresiones-online.ricardosanjur.workers.dev",
+  "order": 13
+}

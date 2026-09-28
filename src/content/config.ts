@@ -16,7 +16,7 @@ const projectsCollection = defineCollection({
     description: localizedString,
     achievements: localizedString,
     technologies: z.array(z.string()),
-    githubUrl: z.string().url(),
+    githubUrl: z.string().url().optional(), // omitir hasta que el repo sea público
     liveUrl: z.string().url().optional(),
     order: z.number().optional(),
   }),

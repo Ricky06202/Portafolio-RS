@@ -1,0 +1,27 @@
+{
+  "title": "3DPrints — Impresión 3D a Medida",
+  "image": "../../assets/3dprints.png",
+  "imageAlt": {
+    "es": "Portada de 3DPrints con el hero de impresión capa por capa",
+    "en": "3DPrints homepage with the layer-by-layer print hero",
+    "fr": "Accueil de 3DPrints avec le hero d'impression couche par couche"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack (producto propio)",
+    "en": "Full-stack Developer (own product)",
+    "fr": "Développeur Full-stack (produit propre)"
+  },
+  "description": {
+    "es": "Tienda y sistema de pedidos para mi servicio de impresión 3D en David, Chiriquí: catálogo con imágenes, carrito, cuentas con Google y panel de administración. Corre 100% en la capa gratuita de Cloudflare — un solo Worker sirve la web, la API y los medios.",
+    "en": "Store and ordering system for my 3D printing service in David, Chiriquí: image catalog, cart, Google accounts and an admin panel. Runs entirely on Cloudflare's free tier — a single Worker serves the site, the API and the media.",
+    "fr": "Boutique et système de commandes pour mon service d'impression 3D à David, Chiriquí : catalogue avec images, panier, comptes Google et panneau d'administration. Fonctionne à 100% sur la couche gratuite de Cloudflare — un seul Worker sert le site, l'API et les médias."
+  },
+  "achievements": {
+    "es": "Hero con animación three.js de impresión capa por capa; API Hono + Zod validada; D1 con Drizzle y R2 para imágenes; flujo de pedido con confirmación por WhatsApp y pagos Yappy preparados.",
+    "en": "three.js hero animating the print layer by layer; validated Hono + Zod API; D1 with Drizzle and R2 for images; order flow with WhatsApp confirmation and Yappy payments ready.",
+    "fr": "Hero three.js animant l'impression couche par couche ; API Hono + Zod validée ; D1 avec Drizzle et R2 pour les images ; flux de commande avec confirmation WhatsApp et paiements Yappy prêts."
+  },
+  "technologies": ["Astro", "Cloudflare Workers", "Hono", "Drizzle", "D1", "R2", "React", "three.js", "Tailwind CSS", "better-auth"],
+  "liveUrl": "https://3dprints.rsanjur.com",
+  "order": 14
+}
