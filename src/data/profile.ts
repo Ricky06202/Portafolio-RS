@@ -10,6 +10,8 @@ export const PROFILE = {
   cryptoEmail: 'crypto@rsanjur.com',
   /** Email para recruiters: destino del botón Hire Me. */
   jobsEmail: 'jobs@rsanjur.com',
+  /** Teléfono de contacto (aparece en el CV imprimible). */
+  phone: '+507 6510-4147',
   github: 'https://github.com/Ricky06202',
   githubRepos: 'https://github.com/Ricky06202?tab=repositories',
   linkedin: 'https://www.linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b/',
