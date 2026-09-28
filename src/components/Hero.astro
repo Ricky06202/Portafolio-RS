@@ -73,7 +73,7 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
         {t('hero.ctaCv')}
       </a>
       <a
-        href="#contact"
+        href={`mailto:${PROFILE.jobsEmail}?subject=${encodeURIComponent('Web3 project — Ricardo, let us talk')}`}
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-700 text-neutral-200 font-bold text-sm hover:border-emerald-500/60 hover:text-emerald-400 transition-all hover:scale-105"
       >
         <Icon name="lucide:handshake" class="size-4" />

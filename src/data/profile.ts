@@ -4,10 +4,12 @@
  */
 export const PROFILE = {
   name: 'Ricardo Sanjur',
-  /** Email principal (contacto general). */
-  email: 'ricardosanjurg@gmail.com',
-  /** Email de la fachada Web3 (Proton). */
-  cryptoEmail: 'rsanjur.dev@proton.me',
+  /** Email de negocio (contacto general). Requiere Cloudflare Email Routing activo. */
+  email: 'ricardo@rsanjur.com',
+  /** Email de la fachada Web3. */
+  cryptoEmail: 'crypto@rsanjur.com',
+  /** Email para recruiters: destino del botón Hire Me. */
+  jobsEmail: 'jobs@rsanjur.com',
   github: 'https://github.com/Ricky06202',
   githubRepos: 'https://github.com/Ricky06202?tab=repositories',
   linkedin: 'https://www.linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b/',

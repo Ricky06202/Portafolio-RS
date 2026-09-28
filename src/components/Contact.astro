@@ -12,8 +12,8 @@ const solana =
   (import.meta.env.DEV ? 'DevSampleSolAddressPlaceholder11111111111111111111' : '')
 
 const emails = [
-  { label: 'Email', href: `mailto:${PROFILE.email}`, color: 'hover:text-sky-400' },
-  { label: 'Proton', href: `mailto:${PROFILE.cryptoEmail}`, color: 'hover:text-emerald-400' },
+  { label: 'Email', icon: 'lucide:mail', href: `mailto:${PROFILE.email}`, color: 'hover:text-sky-400' },
+  { label: 'Crypto', icon: 'lucide:shield-half', href: `mailto:${PROFILE.cryptoEmail}`, color: 'hover:text-emerald-400' },
 ]
 const links = [
   { name: 'GitHub', icon: 'lucide:github', href: PROFILE.github, color: 'hover:text-white' },
@@ -47,7 +47,7 @@ const links = [
           class={`flex flex-col items-center justify-center p-4 rounded-2xl bg-neutral-800/50 border border-neutral-700/50 transition-all duration-300 hover:border-sky-500/50 hover:bg-neutral-800 group ${mail.color} h-full w-full`}
           title={mail.href.replace('mailto:', '')}
         >
-          <Icon name={mail.label === 'Proton' ? 'lucide:shield-half' : 'lucide:mail'} class="size-6 mb-2 group-hover:scale-110 transition-transform" />
+          <Icon name={mail.icon} class="size-6 mb-2 group-hover:scale-110 transition-transform" />
           <span class="text-[10px] font-black uppercase tracking-widest">{mail.label}</span>
         </a>
         <button
