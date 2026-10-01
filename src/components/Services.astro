@@ -8,20 +8,20 @@ const t = useTranslations(lang)
 const services = servicesData[lang as 'es' | 'en' | 'fr']
 ---
 
-<section id="services" class="col-span-12 reveal web3-only">
+<section id="services" class="col-span-12 reveal">
   <div class="flex items-center gap-4 mb-8">
     <h2 class="text-3xl font-black text-white flex items-center gap-3 font-display">
-      <Icon name="lucide:wrench" class="size-8 text-cyan-400" />
+      <Icon name="lucide:wrench" class="size-8 text-sky-400" />
       {t('services.title')}
     </h2>
-    <div class="h-px bg-gradient-to-r from-cyan-500/50 to-transparent flex-1"></div>
+    <div class="h-px bg-gradient-to-r from-sky-500/50 to-transparent flex-1"></div>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {services.map((service, i) => (
-      <div class="bento-card !p-6 group border-neutral-800 hover:border-violet-500/40 transition-colors web3-hover-glow">
-        <div class="size-11 rounded-xl bg-gradient-to-br from-violet-500/15 to-cyan-500/15 border border-violet-500/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-          <Icon name={service.icon} class="size-5 text-cyan-300" />
+      <div class="bento-card !p-6 group border-neutral-800 hover:border-sky-500/40 transition-colors">
+        <div class="size-11 rounded-xl bg-gradient-to-br from-sky-500/15 to-cyan-500/15 border border-sky-500/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+          <Icon name={service.icon} class="size-5 text-sky-300" />
         </div>
         <h3 class="text-base font-black text-white mb-3 font-display">
           {String(i + 1).padStart(2, '0')} · {service.title}
@@ -29,7 +29,7 @@ const services = servicesData[lang as 'es' | 'en' | 'fr']
         <ul class="space-y-2">
           {service.items.map((item) => (
             <li class="flex items-start gap-2 text-xs text-neutral-400 leading-relaxed">
-              <span class="mt-1.5 size-1 rounded-full bg-violet-400 shrink-0"></span>
+              <span class="mt-1.5 size-1 rounded-full bg-sky-400 shrink-0"></span>
               {item}
             </li>
           ))}

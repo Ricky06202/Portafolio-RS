@@ -145,10 +145,12 @@ const achievements = data.achievements[lang as 'es' | 'en' | 'fr'];
               {lang === 'es' ? 'Detalles Rápidos' : 'Quick Details'}
             </h2>
             <ul class="space-y-4">
-              <li class="flex items-center gap-3 text-sm text-neutral-400">
-                <Icon name="lucide:calendar" class="size-4 text-sky-400" />
-                <span>2024 - 2025</span>
-              </li>
+              {data.year && (
+                <li class="flex items-center gap-3 text-sm text-neutral-400">
+                  <Icon name="lucide:calendar" class="size-4 text-sky-400" />
+                  <span>{data.year}</span>
+                </li>
+              )}
               <li class="flex items-center gap-3 text-sm text-neutral-400">
                 <Icon name="lucide:user" class="size-4 text-sky-400" />
                 <span>{role}</span>

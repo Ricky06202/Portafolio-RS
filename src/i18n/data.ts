@@ -1,76 +1,63 @@
 /** Datos localizados del portafolio (es/en/fr). El perfil duro vive en src/data/profile.ts */
 
 export const aboutData = {
-  es: `Ingeniero Full-stack especializado en infraestructura de pagos cripto e integraciones blockchain. Construyo sistemas seguros que unen Web3 con las finanzas tradicionales, desde listeners de webhooks para APIs de exchange (Binance Pay, Coinbase) hasta arquitecturas de conciliación fiat/crypto.
+  es: `Ingeniero full-stack. Construyo el software que los negocios usan todos los días: la página que consigue clientes, el panel que lleva las reservas y la cola de trabajo, y la API que sostiene todo eso.
 
-Con una base sólida en plataformas SaaS, sistemas de alta disponibilidad e infraestructura distribuida, llevo ingeniería de producción a los proyectos Web3. Terminando mi carrera de Ingeniería en Sistemas mientras construyo activamente soluciones de pago cripto.
+Trabajo de punta a punta —base de datos, API, interfaz y despliegue— con TypeScript, Astro/Next.js, Hono y PostgreSQL, y con la infraestructura también a mi cargo: Cloudflare, Docker y NixOS declarado en git para que nada dependa de una máquina.
 
-Basado en Panamá (UTC-5), con solapamiento horario óptimo para equipos de EE. UU. y Europa.`,
-  en: `Full-Stack Engineer specializing in crypto payment infrastructure and blockchain integrations. I build secure systems that bridge Web3 and traditional finance, from webhook listeners for exchange APIs (Binance Pay, Coinbase) to fiat/crypto reconciliation architectures.
+Termino la carrera de Ingeniería en Sistemas mientras mantengo productos propios en producción (taller de impresión 3D, impresiones en línea y RS Cloud, hosting para estudiantes). Basado en Panamá (UTC-5), con solapamiento horario cómodo para equipos de EE. UU. y Europa.`,
+  en: `Full-stack engineer. I build the software businesses use every day: the site that wins customers, the panel that runs bookings and the job queue, and the API holding it all up.
 
-With a strong foundation in SaaS platforms, high-availability systems, and distributed infrastructure, I bring production-grade engineering to Web3 projects. Currently finishing my Computer Systems Engineering degree while actively building crypto payment solutions.
+I work end to end —database, API, UI and deployment— with TypeScript, Astro/Next.js, Hono and PostgreSQL, and I own the infrastructure too: Cloudflare, Docker and NixOS declared in git so nothing depends on a single machine.
 
-Based in Panama (UTC-5) with optimal timezone overlap for US/EU teams.`,
-  fr: `Ingénieur Full-stack spécialisé dans l'infrastructure de paiement crypto et les intégrations blockchain. Je construis des systèmes sécurisés qui relient Web3 et la finance traditionnelle, des listeners de webhooks pour API d'exchanges (Binance Pay, Coinbase) jusqu'aux architectures de réconciliation fiat/crypto.
+I'm finishing my Computer Systems Engineering degree while running my own products in production (a 3D printing shop, online printing and RS Cloud, hosting for students). Based in Panama (UTC-5) with comfortable timezone overlap for US/EU teams.`,
+  fr: `Ingénieur full-stack. Je construis les logiciels que les entreprises utilisent chaque jour : le site qui attire les clients, le panneau qui gère les réservations et la file de travail, et l'API qui tient le tout.
 
-Avec une solide base en plateformes SaaS, systèmes haute disponibilité et infrastructure distribuée, j'apporte de l'ingénierie de production aux projets Web3. Je termine mon diplôme en génie informatique tout en construisant activement des solutions de paiement crypto.
+Je travaille de bout en bout —base de données, API, interface et déploiement— avec TypeScript, Astro/Next.js, Hono et PostgreSQL, et je garde aussi l'infrastructure : Cloudflare, Docker et NixOS déclaré dans git pour que rien ne dépende d'une seule machine.
 
-Basé au Panama (UTC-5), avec un chevauchement horaire optimal pour les équipes US/EU.`,
+Je termine mon diplôme en génie informatique tout en maintenant mes propres produits en production (atelier d'impression 3D, impression en ligne et RS Cloud, hébergement pour étudiants). Basé au Panama (UTC-5), avec un chevauchement horaire confortable pour les équipes US/EU.`,
 }
 
-/* ── Tech stack reorganizado: Web3 primero (el orden de claves es el de render) ── */
+/* ── Tech stack (el orden de claves es el de render) ── */
 
-const web3Items = [
-  'Ethers.js',
-  'Viem',
-  'Web3.js',
-  'MetaMask',
-  'WalletConnect',
-  'RainbowKit',
-  'Binance Pay API',
-  'Coinbase Commerce',
-  'Firma RSA-SHA256 / HMAC',
-  'Idempotencia',
-  'The Graph',
-  'IPFS',
-]
 const backendItems = [
   'Node.js',
   'Bun',
   'Hono',
-  'FastAPI',
   'Express',
+  'FastAPI',
   'PostgreSQL',
+  'SQLite / Cloudflare D1',
   'Prisma',
   'Drizzle ORM',
-  'REST APIs',
-  'Webhooks',
+  'REST',
   'GraphQL',
+  'Webhooks',
+  'WebSocket / SSE',
   'Redis',
 ]
 const frontendItems = [
-  'Next.js',
-  'React',
   'TypeScript',
+  'React',
+  'Next.js',
+  'Astro',
   'Tailwind CSS',
   'Svelte',
-  'Astro',
-  'wagmi',
-  'RainbowKit',
-  'WebSocket / SSE',
+  'HTML / CSS',
 ]
 const infraItems = [
   'Docker',
-  'Proxmox',
-  'Hetzner',
-  'NixOS',
   'Cloudflare Workers',
   'Cloudflare Pages',
   'R2 / D1',
+  'NixOS',
+  'Proxmox',
+  'Hetzner',
   'GitHub Actions',
-  'Linux (NixOS, Arch, Fedora)',
+  'Linux',
+  'Caddy',
 ]
-const langsItems = ['TypeScript / JavaScript', 'Rust', 'Go', 'Python', 'C#', 'C++']
+const langsItems = ['TypeScript / JavaScript', 'Python', 'Go', 'Rust', 'C#', 'C++']
 const humanLangs = {
   es: ['Inglés (Intermedio)', 'Francés (Aprendiendo)'],
   en: ['English (Intermediate)', 'French (Learning)'],
@@ -79,7 +66,6 @@ const humanLangs = {
 
 export const skillsData = {
   es: {
-    'Blockchain y Web3': { icon: 'lucide:link-2', items: web3Items },
     'Backend y APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
     'Infraestructura y DevOps': { icon: 'lucide:cloud', items: infraItems },
@@ -87,7 +73,6 @@ export const skillsData = {
     'Idiomas': { icon: 'lucide:languages', items: humanLangs.es },
   },
   en: {
-    'Blockchain & Web3': { icon: 'lucide:link-2', items: web3Items },
     'Backend & APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
     'Infrastructure & DevOps': { icon: 'lucide:cloud', items: infraItems },
@@ -95,7 +80,6 @@ export const skillsData = {
     'Spoken': { icon: 'lucide:languages', items: humanLangs.en },
   },
   fr: {
-    'Blockchain et Web3': { icon: 'lucide:link-2', items: web3Items },
     'Backend et APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
     'Infrastructure et DevOps': { icon: 'lucide:cloud', items: infraItems },
@@ -104,281 +88,120 @@ export const skillsData = {
   },
 }
 
-/* ── Proyectos Web3 (destacados, antes de Foundation Projects) ──────────────
-   Honestidad ante todo: `status` controla qué se muestra.
-   'live' = existe y funciona · 'building' = en desarrollo activo, repo privado
-   que se publicará · 'soon' = planificado. Sin botones falsos: los enlaces a
-   repo/demo solo aparecen si existen (ver profile.web3Repos). */
-
-export type Web3Status = 'live' | 'building' | 'soon'
-
-export const web3ProjectsData = {
-  es: [
-    {
-      title: 'Binance Pay Webhook Listener',
-      status: 'building' as Web3Status,
-      featured: true,
-      icon: 'lucide:radio-tower',
-      description:
-        'Sistema de procesamiento de pagos para transacciones cripto con validación de webhooks en tiempo real y conciliación fiat/crypto.',
-      features: [
-        'Endpoint con validación de firma RSA-SHA256 (Binance Pay) y HMAC-SHA256 (genérico)',
-        'Ledger idempotente: reintentos del proveedor nunca reprocesan un pago',
-        'Servidor ligero (Hono) desplegable en edge + ventana de reloj anti-replay',
-        'Comparaciones en tiempo constante para evitar fugas por timing',
-        'Conciliación fiat/crypto y actualización automática de estado',
-      ],
-      technologies: ['TypeScript', 'Hono', 'SQLite/PostgreSQL', 'RSA-SHA256', 'HMAC-SHA256'],
-    },
-    {
-      title: 'Crypto Transaction Analytics Dashboard',
-      status: 'soon' as Web3Status,
-      featured: false,
-      icon: 'lucide:line-chart',
-      description:
-        'Monitoreo y analítica en tiempo real de pagos cripto con soporte multi-cadena.',
-      features: [
-        'Conexión de wallet vía MetaMask / wagmi / RainbowKit',
-        'Feed de transacciones en vivo (SSE/WebSocket)',
-        'Analítica histórica y exportación a CSV',
-        'Soporte multi-cadena (Ethereum, BSC, Polygon, Solana)',
-        'Seguimiento de balances y cálculo de PnL en tiempo real',
-      ],
-      technologies: ['Next.js', 'wagmi', 'Viem', 'Tailwind CSS', 'PostgreSQL'],
-    },
-    {
-      title: 'Self-Hosted Web3 Infrastructure Stack',
-      status: 'live' as Web3Status,
-      featured: false,
-      icon: 'lucide:shield-check',
-      description:
-        'Infraestructura de producción para aplicaciones Web3 con foco en seguridad y soberanía: configuración declarativa de dos máquinas y servicios edge.',
-      features: [
-        'NixOS con flakes: flota de 2 hosts declarada 100% en git',
-        'Cloudflare Workers/Pages/R2/D1 para cómputo y storage en el edge',
-        'Vaultwarden autoalojado para gestión de contraseñas',
-        'Despliegues automáticos con GitHub Actions (CI de Rust + Astro)',
-        'Configuraciones Linux endurecidas y respaldo de secretos fuera de repo',
-      ],
-      technologies: ['NixOS', 'Docker', 'Cloudflare', 'GitHub Actions', 'Linux'],
-    },
-  ],
-  en: [
-    {
-      title: 'Binance Pay Webhook Listener',
-      status: 'building' as Web3Status,
-      featured: true,
-      icon: 'lucide:radio-tower',
-      description:
-        'Secure payment processing system for crypto transactions with real-time webhook validation and fiat/crypto reconciliation.',
-      features: [
-        'Signature validation with RSA-SHA256 (Binance Pay) and HMAC-SHA256 (generic)',
-        'Idempotent ledger: provider retries never re-process a payment',
-        'Lightweight Hono server for the edge + clock-skew window against replay',
-        'Constant-time comparisons to avoid timing leaks',
-        'Fiat/crypto reconciliation and automated payment status updates',
-      ],
-      technologies: ['TypeScript', 'Hono', 'SQLite/PostgreSQL', 'RSA-SHA256', 'HMAC-SHA256'],
-    },
-    {
-      title: 'Crypto Transaction Analytics Dashboard',
-      status: 'soon' as Web3Status,
-      featured: false,
-      icon: 'lucide:line-chart',
-      description:
-        'Real-time monitoring and analytics for crypto payments with multi-chain support.',
-      features: [
-        'Wallet connection via MetaMask / wagmi / RainbowKit',
-        'Live transaction feed (SSE/WebSocket)',
-        'Historical analytics and CSV export',
-        'Multi-chain support (Ethereum, BSC, Polygon, Solana)',
-        'Real-time balance tracking and PnL calculations',
-      ],
-      technologies: ['Next.js', 'wagmi', 'Viem', 'Tailwind CSS', 'PostgreSQL'],
-    },
-    {
-      title: 'Self-Hosted Web3 Infrastructure Stack',
-      status: 'live' as Web3Status,
-      featured: false,
-      icon: 'lucide:shield-check',
-      description:
-        'Production-ready infrastructure for Web3 applications with a focus on security and sovereignty: declarative config for two machines plus edge services.',
-      features: [
-        'NixOS with flakes: a 2-host fleet declared 100% in git',
-        'Cloudflare Workers/Pages/R2/D1 for edge compute and storage',
-        'Vaultwarden self-hosted password management',
-        'Automated deployments with GitHub Actions (Rust + Astro CI)',
-        'Hardened Linux configs and secrets kept outside every repo',
-      ],
-      technologies: ['NixOS', 'Docker', 'Cloudflare', 'GitHub Actions', 'Linux'],
-    },
-  ],
-  fr: [
-    {
-      title: 'Binance Pay Webhook Listener',
-      status: 'building' as Web3Status,
-      featured: true,
-      icon: 'lucide:radio-tower',
-      description:
-        "Système sécurisé de traitement des paiements pour transactions crypto avec validation de webhooks en temps réel et réconciliation fiat/crypto.",
-      features: [
-        'Validation de signature RSA-SHA256 (Binance Pay) et HMAC-SHA256 (générique)',
-        'Ledger idempotent : les relances du fournisseur ne retraitent jamais un paiement',
-        'Serveur léger Hono déployable en edge + fenêtre d’horloge anti-rejeu',
-        'Comparaisons en temps constant pour éviter les fuites de timing',
-        'Réconciliation fiat/crypto et mise à jour automatique du statut de paiement',
-      ],
-      technologies: ['TypeScript', 'Hono', 'SQLite/PostgreSQL', 'RSA-SHA256', 'HMAC-SHA256'],
-    },
-    {
-      title: 'Crypto Transaction Analytics Dashboard',
-      status: 'soon' as Web3Status,
-      featured: false,
-      icon: 'lucide:line-chart',
-      description:
-        'Supervision et analytique en temps réel des paiements crypto avec support multi-chaînes.',
-      features: [
-        'Connexion de wallet via MetaMask / wagmi / RainbowKit',
-        'Flux de transactions en direct (SSE/WebSocket)',
-        'Analytique historique et export CSV',
-        'Support multi-chaînes (Ethereum, BSC, Polygon, Solana)',
-        'Suivi des soldes et calcul de PnL en temps réel',
-      ],
-      technologies: ['Next.js', 'wagmi', 'Viem', 'Tailwind CSS', 'PostgreSQL'],
-    },
-    {
-      title: 'Self-Hosted Web3 Infrastructure Stack',
-      status: 'live' as Web3Status,
-      featured: false,
-      icon: 'lucide:shield-check',
-      description:
-        "Infrastructure de production pour applications Web3 axée sur la sécurité et la souveraineté : configuration déclarative de deux machines et services edge.",
-      features: [
-        'NixOS avec flakes : une flotte de 2 hôtes déclarée à 100% en git',
-        'Cloudflare Workers/Pages/R2/D1 pour le calcul et le stockage en edge',
-        'Gestion de mots de passe Vaultwarden auto-hébergée',
-        'Déploiement automatisé avec GitHub Actions (CI Rust + Astro)',
-        'Configurations Linux durcies et secrets hors de tout dépôt',
-      ],
-      technologies: ['NixOS', 'Docker', 'Cloudflare', 'GitHub Actions', 'Linux'],
-    },
-  ],
-}
-
-/* ── Servicios Web3 ("What I Build") ──────────────────────────────────────── */
+/* ── Servicios ("Qué construyo") ─────────────────────────────────────────── */
 
 export const servicesData = {
   es: [
     {
-      title: 'Integración de Pagos Cripto',
-      icon: 'lucide:bitcoin',
+      title: 'Sitios web a medida',
+      icon: 'lucide:layout-template',
       items: [
-        'Integración de Binance Pay, Coinbase Commerce y soluciones de wallet a medida',
-        'Listeners de webhooks seguros con validación de firma',
-        'Sistemas de conciliación fiat/crypto',
+        'Landing pages, sitios de negocio y portafolios: rápidos, en el celular y en Google',
+        'Contenido que el dueño edita solo desde su propio panel',
+        'Dominio, DNS, SSL y publicación incluidos',
       ],
     },
     {
-      title: 'Frontend de Smart Contracts',
-      icon: 'lucide:blocks',
-      items: [
-        'dApps React/Next.js con conexión de wallets',
-        'Monitoreo de eventos blockchain en tiempo real',
-        'Historial de transacciones y analítica',
-      ],
-    },
-    {
-      title: 'Infraestructura Web3',
+      title: 'APIs y backend',
       icon: 'lucide:server-cog',
       items: [
-        'Nodos y validadores autoalojados',
-        'Cloudflare Workers para procesamiento en el edge',
-        'Despliegues Docker sobre Hetzner/Proxmox',
+        'REST y GraphQL con Node (Hono, Express), Bun, Python (FastAPI) o Go',
+        'PostgreSQL/SQLite, colas, webhooks y tiempo real (WebSocket/SSE)',
+        'Integración de pagos (Yappy, PayPal) con validación de firma',
       ],
     },
     {
-      title: 'APIs Blockchain',
-      icon: 'lucide:network',
+      title: 'Paneles y sistemas internos',
+      icon: 'lucide:layout-dashboard',
       items: [
-        'Endpoints RPC e indexadores a medida',
-        'Desarrollo de subgraphs con The Graph',
-        'Agregación de datos multi-cadena',
+        'Reservas, inventario, agendas y reportes: se acaba el cuaderno',
+        'Dashboards con métricas y estado en vivo',
+        'Acceso por roles y registro de lo que pasa en el sistema',
+      ],
+    },
+    {
+      title: 'Hosting y despliegue',
+      icon: 'lucide:cloud-cog',
+      items: [
+        'Cloudflare Workers/Pages, Docker y VPS (Hetzner) con NixOS declarativo',
+        'Despliegues automáticos (CI/CD), respaldos y monitoreo',
+        'Infraestructura propia: RS Cloud, hosting para estudiantes',
       ],
     },
   ],
   en: [
     {
-      title: 'Crypto Payment Integration',
-      icon: 'lucide:bitcoin',
+      title: 'Custom websites',
+      icon: 'lucide:layout-template',
       items: [
-        'Integrate Binance Pay, Coinbase Commerce, and custom wallet solutions',
-        'Secure webhook listeners with signature validation',
-        'Fiat/crypto reconciliation systems',
+        'Landings, business sites and portfolios: fast, mobile-friendly, on Google',
+        'Content the owner edits from their own panel',
+        'Domain, DNS, SSL and launch included',
       ],
     },
     {
-      title: 'Smart Contract Frontends',
-      icon: 'lucide:blocks',
-      items: [
-        'React/Next.js dApps with wallet connections',
-        'Real-time blockchain event monitoring',
-        'Transaction history and analytics',
-      ],
-    },
-    {
-      title: 'Web3 Infrastructure',
+      title: 'APIs and backend',
       icon: 'lucide:server-cog',
       items: [
-        'Self-hosted nodes and validators',
-        'Cloudflare Workers for edge processing',
-        'Docker deployments on Hetzner/Proxmox',
+        'REST and GraphQL with Node (Hono, Express), Bun, Python (FastAPI) or Go',
+        'PostgreSQL/SQLite, queues, webhooks and realtime (WebSocket/SSE)',
+        'Payments integration (Yappy, PayPal) with signature validation',
       ],
     },
     {
-      title: 'Blockchain APIs',
-      icon: 'lucide:network',
+      title: 'Internal tools and panels',
+      icon: 'lucide:layout-dashboard',
       items: [
-        'Custom RPC endpoints and indexers',
-        'The Graph subgraph development',
-        'Multi-chain data aggregation',
+        'Bookings, inventory, scheduling and reports — goodbye paper notebooks',
+        'Dashboards with metrics and live status',
+        'Role-based access and an audit trail of what happens',
+      ],
+    },
+    {
+      title: 'Hosting and deployment',
+      icon: 'lucide:cloud-cog',
+      items: [
+        'Cloudflare Workers/Pages, Docker and VPS (Hetzner) with declarative NixOS',
+        'Automated deploys (CI/CD), backups and monitoring',
+        'My own infrastructure: RS Cloud, hosting for students',
       ],
     },
   ],
   fr: [
     {
-      title: 'Intégration de Paiements Crypto',
-      icon: 'lucide:bitcoin',
+      title: 'Sites web sur mesure',
+      icon: 'lucide:layout-template',
       items: [
-        'Intégration Binance Pay, Coinbase Commerce et solutions wallet sur mesure',
-        'Listeners de webhooks sécurisés avec validation de signature',
-        'Systèmes de réconciliation fiat/crypto',
+        'Landings, sites d’entreprise et portfolios : rapides, mobiles et visibles sur Google',
+        'Contenu que le propriétaire édite depuis son propre panneau',
+        'Domaine, DNS, SSL et mise en ligne inclus',
       ],
     },
     {
-      title: 'Frontends de Smart Contracts',
-      icon: 'lucide:blocks',
-      items: [
-        'dApps React/Next.js avec connexion de wallets',
-        'Supervision d’événements blockchain en temps réel',
-        'Historique des transactions et analytique',
-      ],
-    },
-    {
-      title: 'Infrastructure Web3',
+      title: 'APIs et backend',
       icon: 'lucide:server-cog',
       items: [
-        'Nœuds et validateurs auto-hébergés',
-        'Cloudflare Workers pour le traitement en edge',
-        'Déploiements Docker sur Hetzner/Proxmox',
+        'REST et GraphQL avec Node (Hono, Express), Bun, Python (FastAPI) ou Go',
+        'PostgreSQL/SQLite, files, webhooks et temps réel (WebSocket/SSE)',
+        'Intégration de paiements (Yappy, PayPal) avec validation de signature',
       ],
     },
     {
-      title: 'APIs Blockchain',
-      icon: 'lucide:network',
+      title: 'Outils et panneaux internes',
+      icon: 'lucide:layout-dashboard',
       items: [
-        'Endpoints RPC et indexeurs sur mesure',
-        'Développement de subgraphs avec The Graph',
-        'Agrégation de données multi-chaînes',
+        'Réservations, inventaire, agendas et rapports — fini le carnet',
+        'Tableaux de bord avec métriques et statut en direct',
+        'Accès par rôle et trace de ce qui se passe',
+      ],
+    },
+    {
+      title: 'Hébergement et déploiement',
+      icon: 'lucide:cloud-cog',
+      items: [
+        'Cloudflare Workers/Pages, Docker et VPS (Hetzner) avec NixOS déclaratif',
+        'Déploiements automatiques (CI/CD), sauvegardes et supervision',
+        'Ma propre infrastructure : RS Cloud, hébergement pour étudiants',
       ],
     },
   ],
@@ -391,14 +214,14 @@ export const experienceData = {
       role: 'Desarrollador Full-stack',
       period: '2022 - Actualidad',
       description:
-        'Desarrollo de aplicaciones web y móviles personalizadas para diversos clientes, utilizando tecnologías modernas como React, Next.js y Node.js.',
+        'Aplicaciones web y móviles a medida para distintos clientes, de la base de datos al despliegue: reservas, tiendas, paneles de control y sitios corporativos con React, Next.js, Astro y Node.js. Incluye productos propios en producción (impresión 3D, impresiones en línea y RS Cloud).',
     },
     {
       company: 'Universidad Tecnológica de Panamá',
       role: 'Asistente de Investigación / Estudiante',
       period: '2026 - Actualidad',
       description:
-        'Participación en proyectos académicos complejos y colaboración en el desarrollo de herramientas internas para la facultad.',
+        'Participación en proyectos académicos complejos y desarrollo de herramientas internas para la facultad, incluyendo RS Cloud: entorno de despliegue para que los estudiantes de Ingeniería de Sistemas publiquen sus proyectos sin configurar servidores.',
     },
   ],
   en: [
@@ -407,14 +230,14 @@ export const experienceData = {
       role: 'Full-stack Developer',
       period: '2022 - Present',
       description:
-        'Development of custom web and mobile applications for various clients, using modern technologies such as React, Next.js, and Node.js.',
+        'Custom web and mobile applications for a range of clients, database to deployment: bookings, stores, dashboards and corporate sites with React, Next.js, Astro and Node.js. Plus my own products in production (3D printing, online printing and RS Cloud).',
     },
     {
       company: 'Technological University of Panama',
       role: 'Research Assistant / Student',
       period: '2026 - Present',
       description:
-        'Participation in complex academic projects and collaboration in the development of internal tools for the faculty.',
+        'Participation in complex academic projects and internal tooling for the faculty, including RS Cloud: a deployment environment so Systems Engineering students can publish their projects without configuring servers.',
     },
   ],
   fr: [
@@ -423,14 +246,14 @@ export const experienceData = {
       role: 'Développeur Full-stack',
       period: '2022 - Présent',
       description:
-        "Développement d'applications web et mobiles personnalisées pour divers clients, utilisant des technologies modernes telles que React, Next.js et Node.js.",
+        "Applications web et mobiles sur mesure pour divers clients, de la base de données au déploiement : réservations, boutiques, tableaux de bord et sites corporatifs avec React, Next.js, Astro et Node.js. Plus mes propres produits en production (impression 3D, impression en ligne et RS Cloud).",
     },
     {
       company: 'Université Technologique du Panama',
       role: 'Assistant de Recherche / Étudiant',
-      period: '2026 - Present',
+      period: '2026 - Présent',
       description:
-        "Participation à des projets académiques complexes et collaboration au développement d'outils internes pour la faculté.",
+        "Participation à des projets académiques complexes et outils internes pour la faculté, dont RS Cloud : un environnement de déploiement pour que les étudiants en génie des systèmes publient leurs projets sans configurer de serveurs.",
     },
   ],
 }

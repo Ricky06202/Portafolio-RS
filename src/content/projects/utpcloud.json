@@ -1,0 +1,38 @@
+{
+  "title": "RS Cloud",
+  "image": "../../assets/utpcloud.png",
+  "imageAlt": {
+    "es": "Portada de RS Cloud, el hosting para estudiantes de Ingeniería de Sistemas",
+    "en": "RS Cloud landing page — hosting for Systems Engineering students",
+    "fr": "Page d'accueil de RS Cloud — hébergement pour étudiants en génie des systèmes"
+  },
+  "role": {
+    "es": "Desarrollador Full-stack (producto propio)",
+    "en": "Full-stack Developer (own product)",
+    "fr": "Développeur Full-stack (produit propre)"
+  },
+  "description": {
+    "es": "Plataforma de hosting para estudiantes de Ingeniería de Sistemas: suben su proyecto o lo conectan a GitHub y queda público en ennombre.midominio.com con SSL, sin tocar servidores. Landing pública más panel protegido con instancias, wizard de despliegue y facturación por Yappy.",
+    "en": "Hosting platform for Systems Engineering students: upload a project or connect it to GitHub and it goes live at myname.mydomain.com with SSL, no server setup. Public landing page plus a protected panel with instances, a deploy wizard and Yappy billing.",
+    "fr": "Plateforme d'hébergement pour les étudiants en génie des systèmes : ils envoient leur projet ou le connectent à GitHub et il devient public sur monnomre.mon-domaine.com avec SSL, sans toucher au serveur. Page publique plus panneau protégé avec instances, assistant de déploiement et facturation Yappy."
+  },
+  "achievements": {
+    "es": "Astro en modo servidor con islas de React para el wizard y la subida de comprobantes; autenticación propia con cookie httpOnly y sesiones en base de datos; límites de plan aplicados de verdad al desplegar (HTTP 402) y topes globales que impiden sobreventar la máquina; Drizzle + SQLite con migración prevista a PostgreSQL; corriendo en VPS propio con Docker y systemd.",
+    "en": "Astro in server mode with React islands for the wizard and receipt uploads; custom auth with httpOnly cookies and DB-backed sessions; plan limits genuinely enforced at deploy time (HTTP 402) plus global caps that prevent overselling the box; Drizzle + SQLite with a planned move to PostgreSQL; running on my own VPS with Docker and systemd.",
+    "fr": "Astro en mode serveur avec des îles React pour l'assistant et l'envoi des justificatifs ; authentification maison avec cookie httpOnly et sessions en base ; limites de plan réellement appliquées au déploiement (HTTP 402) plus plafonds globaux qui empêchent de survendre la machine ; Drizzle + SQLite avec passage prévu à PostgreSQL ; tourne sur mon propre VPS avec Docker et systemd."
+  },
+  "technologies": [
+    "Astro",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Drizzle ORM",
+    "SQLite",
+    "Node.js",
+    "Docker",
+    "Caddy"
+  ],
+  "liveUrl": "https://cloud.rsanjur.com",
+  "year": "2026",
+  "order": 15
+}

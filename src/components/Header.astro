@@ -6,8 +6,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const nav = [
   { href: '#about', label: t('nav.about') },
-  { href: '#web3-projects', label: t('nav.web3'), web3: true },
-  { href: '#services', label: t('nav.services'), web3: true },
+  { href: '#services', label: t('nav.services') },
   { href: '#skills', label: t('nav.skills') },
   { href: '#experience', label: t('nav.experience') },
   { href: '#projects', label: t('nav.projects') },
@@ -23,17 +22,14 @@ const nav = [
       href={lang === 'es' ? '/' : `/${lang}/`}
       class="text-xl font-black text-white tracking-tighter hover:text-sky-400 transition-all group shrink-0"
     >
-      RS<span class="text-violet-500 group-hover:animate-pulse">.</span>
+      RS<span class="text-sky-500 group-hover:animate-pulse">.</span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-5">
       {nav.map((item) => (
         <a
           href={item.href}
-          class:list={[
-            'text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors',
-            item.web3 && 'web3-only hover:text-violet-300',
-          ]}
+          class="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-sky-400 transition-colors"
         >
           {item.label}
         </a>
@@ -41,60 +37,7 @@ const nav = [
     </nav>
 
     <div class="flex items-center gap-3">
-      <!-- Toggle Web3 ⇄ Web2: oculta la capa Web3 sin recargar -->
-      <button
-        type="button"
-        id="view-toggle"
-        class="relative flex items-center rounded-xl border border-neutral-700 bg-neutral-800/60 p-0.5 text-[10px] font-black uppercase tracking-widest shrink-0"
-        title={t('toggle.hint')}
-        data-label-web3={t('toggle.web3')}
-        data-label-web2={t('toggle.web2')}
-      >
-        <span class="toggle-knob absolute top-0.5 bottom-0.5 w-1/2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 transition-transform duration-300"></span>
-        <span class="toggle-web3 relative z-10 px-2.5 py-1 text-neutral-950">Web3</span>
-        <span class="toggle-web2 relative z-10 px-2.5 py-1 text-neutral-400">Web2</span>
-      </button>
       <LanguagePicker />
     </div>
   </div>
 </header>
-
-<script is:inline>
-  // Aplica la vista guardada ANTES de pintar para evitar parpadeo.
-  (() => {
-    try {
-      const v = localStorage.getItem('rs-view')
-      if (v === 'web2') document.documentElement.setAttribute('data-view', 'web2')
-    } catch {}
-  })()
-</script>
-
-<script>
-  const btn = document.getElementById('view-toggle')
-  const knob = btn?.querySelector('.toggle-knob')
-  const web3Lbl = btn?.querySelector('.toggle-web3')
-  const web2Lbl = btn?.querySelector('.toggle-web2')
-
-  function paint(view: 'web3' | 'web2') {
-    if (!btn || !knob || !web3Lbl || !web2Lbl) return
-    const on = view === 'web3'
-    knob.style.transform = on ? 'translateX(0%)' : 'translateX(100%)'
-    web3Lbl.className = `toggle-web3 relative z-10 px-2.5 py-1 ${on ? 'text-neutral-950' : 'text-neutral-400'}`
-    web2Lbl.className = `toggle-web2 relative z-10 px-2.5 py-1 ${on ? 'text-neutral-400' : 'text-neutral-950'}`
-  }
-
-  const current = () =>
-    document.documentElement.getAttribute('data-view') === 'web2' ? 'web2' : 'web3'
-
-  paint(current())
-
-  btn?.addEventListener('click', () => {
-    const next = current() === 'web3' ? 'web2' : 'web3'
-    if (next === 'web2') document.documentElement.setAttribute('data-view', 'web2')
-    else document.documentElement.removeAttribute('data-view')
-    try {
-      localStorage.setItem('rs-view', next)
-    } catch {}
-    paint(next)
-  })
-</script>

@@ -18,6 +18,7 @@ const projectsCollection = defineCollection({
     technologies: z.array(z.string()),
     githubUrl: z.string().url().optional(), // omitir hasta que el repo sea público
     liveUrl: z.string().url().optional(),
+    year: z.string().optional(), // ej. "2026" o "2024 - 2025"
     order: z.number().optional(),
   }),
 });

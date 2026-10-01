@@ -10,12 +10,12 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
 ---
 
 <section
-  class="col-span-12 md:col-span-8 bento-card flex flex-col lg:flex-row items-center gap-8 reveal web3-gradient-border"
+  class="col-span-12 md:col-span-8 bento-card flex flex-col lg:flex-row items-center gap-8 reveal"
 >
   <!-- Contenedor de la Imagen -->
   <div class="shrink-0">
     <div class="relative group">
-      <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-400 to-emerald-500 rounded-full blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+      <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-emerald-500 rounded-full blur opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
       <img
         src={profilePic.src}
         alt="Foto de Ricardo Sanjur"
@@ -27,13 +27,10 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
   <div class="text-center lg:text-left flex-1 min-w-0">
     <div class="flex flex-wrap justify-center lg:justify-start gap-2 mb-4">
       <span
-        class="glow-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/30 text-[10px] font-bold text-violet-300 uppercase tracking-widest"
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-[10px] font-bold text-sky-300 uppercase tracking-widest"
       >
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
-        </span>
-        {t('badge.openWeb3')}
+        <Icon name="lucide:layers" class="size-3" />
+        {t('badge.focus')}
       </span>
       <span
         class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-colors"
@@ -46,7 +43,7 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
       </span>
     </div>
     <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3 font-display">
-      Ricardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400">Sanjur</span>
+      Ricardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400">Sanjur</span>
     </h1>
     <p class="text-xl md:text-2xl text-white font-bold mb-1">
       {t('hero.headline')}
@@ -59,10 +56,10 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
     </p>
     <div class="flex flex-wrap justify-center lg:justify-start gap-3">
       <a
-        href="#web3-projects"
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-violet-600/25"
+        href="#projects"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-sky-600/25"
       >
-        <Icon name="lucide:blocks" class="size-4" />
+        <Icon name="lucide:folder-git-2" class="size-4" />
         {t('hero.ctaProjects')}
       </a>
       <a
@@ -73,7 +70,7 @@ const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
         {t('hero.ctaCv')}
       </a>
       <a
-        href={`mailto:${PROFILE.jobsEmail}?subject=${encodeURIComponent('Web3 project — Ricardo, let us talk')}`}
+        href={`mailto:${PROFILE.jobsEmail}?subject=${encodeURIComponent(lang === 'es' ? 'Proyecto web — Ricardo, hablemos' : lang === 'fr' ? 'Projet web — Ricardo, parlons-en' : 'Web project — Ricardo, let us talk')}`}
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-neutral-700 text-neutral-200 font-bold text-sm hover:border-emerald-500/60 hover:text-emerald-400 transition-all hover:scale-105"
       >
         <Icon name="lucide:handshake" class="size-4" />
