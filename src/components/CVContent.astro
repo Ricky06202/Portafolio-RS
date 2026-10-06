@@ -14,9 +14,15 @@ const skills = skillsData[lang as 'es' | 'en' | 'fr']
 const experiences = experienceData[lang as 'es' | 'en' | 'fr']
 
 const allProjects = await getCollection('projects');
-// Proyectos destacados seleccionados manualmente para el CV (los más fuertes).
-// Ajusta esta lista con los slugs (nombres de archivo sin .json) que prefieras.
-const featuredSlugs = ['utpcloud', 'devnest', 'tshirt-stryd', 'galeria-medallas'];
+// Proyectos destacados seleccionados manualmente para el CV (los más fuertes,
+// en el orden en que se muestran). Slugs = nombres de archivo sin .json.
+const featuredSlugs = [
+  'utpcloud',                    // RS Cloud — mi plataforma de hosting (el héroe)
+  '3dprints',                    // tienda + cola de producción en Cloudflare
+  'impresiones-online',          // pagos + cola en tiempo real por WebSockets
+  'reservas-senderos-amados',    // reservas y panel para negocio real
+  'senderos-amados',             // sitio del cliente con booking integrado
+];
 const projects = featuredSlugs
   .map((slug) => allProjects.find((project) => project.id === slug))
   .filter((project): project is NonNullable<typeof project> => project !== undefined)
@@ -31,10 +37,10 @@ const projects = featuredSlugs
 const contact = {
   email: PROFILE.email,
   phone: PROFILE.phone,
-  location: 'Panamá, Panamá',
+  location: 'Panamá (UTC-5) · Remote',
   linkedin: 'linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b',
   github: 'github.com/Ricky06202',
-  website: 'rsanjur.com'
+  website: 'portafolio.rsanjur.com'
 }
 ---
 
@@ -214,7 +220,7 @@ const contact = {
   <!-- Footer del CV -->
   <footer class="cv-footer mt-12 pt-8 border-t border-slate-100 text-center">
     <p class="text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-      {lang === 'es' ? 'Generado dinámicamente desde' : lang === 'fr' ? 'Généré dynamiquement à partir de' : 'Dynamically generated from'} rsanjur.com — 2026
+      {lang === 'es' ? 'Generado dinámicamente desde' : lang === 'fr' ? 'Généré dynamiquement à partir de' : 'Dynamically generated from'} portafolio.rsanjur.com — {new Date().getFullYear()}
     </p>
   </footer>
 </div>

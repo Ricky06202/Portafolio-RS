@@ -16,11 +16,19 @@ const t = useTranslations(lang)
       <p class="text-neutral-500 text-sm mt-1 font-bold">
         © {new Date().getFullYear()} Ricardo Sanjur <span class="text-sky-500 mx-1">/</span> {t('footer.rights')}
       </p>
+      <a
+        href="https://rsanjur.com"
+        target="_blank"
+        rel="noopener"
+        class="inline-block text-neutral-500 text-sm mt-2 hover:text-sky-400 transition-colors"
+      >
+        {t('footer.local')}<span class="text-sky-400 font-bold">rsanjur.com</span> →
+      </a>
     </div>
     
     <div class="flex items-center gap-4">
-       <div class="size-2 rounded-full bg-sky-500 animate-pulse"></div>
-       <span class="text-xs font-black uppercase tracking-widest text-sky-400">Status: Optimized for 2026</span>
+       <div class="size-2 rounded-full bg-emerald-500 animate-pulse"></div>
+       <span class="text-xs font-black uppercase tracking-widest text-emerald-400">{t('footer.status')}</span>
     </div>
   </div>
 </footer>

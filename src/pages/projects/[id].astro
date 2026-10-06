@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, getEntry } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { defaultLang } from '../../i18n/ui';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -27,7 +28,7 @@ const achievements = data.achievements[lang as 'es' | 'en' | 'fr'];
   <div class="max-w-4xl mx-auto">
     <!-- Botón Volver -->
     <a
-      href={lang === 'es' ? '/' : `/${lang}`}
+      href={lang === defaultLang ? '/' : `/${lang}`}
       class="inline-flex items-center gap-2 text-neutral-400 hover:text-sky-400 transition-colors mb-8 group"
     >
       <Icon name="lucide:arrow-left" class="size-5 transition-transform group-hover:-translate-x-1" />

@@ -1,40 +1,49 @@
 /** Datos localizados del portafolio (es/en/fr). El perfil duro vive en src/data/profile.ts */
 
 export const aboutData = {
-  es: `Ingeniero full-stack. Construyo el software que los negocios usan todos los días: la página que consigue clientes, el panel que lleva las reservas y la cola de trabajo, y la API que sostiene todo eso.
+  es: `Ingeniero full-stack y de plataforma. Construyo el software que los negocios usan todos los días —la página que consigue clientes, el panel que lleva las reservas, la API que sostiene todo— y me hago cargo también de donde corre: NixOS declarado en git, Docker, Cloudflare, CI/CD, respaldos y monitoreo. Nada depende de una máquina ni de una memoria.
 
-Trabajo de punta a punta —base de datos, API, interfaz y despliegue— con TypeScript, Astro/Next.js, Hono y PostgreSQL, y con la infraestructura también a mi cargo: Cloudflare, Docker y NixOS declarado en git para que nada dependa de una máquina.
+Ocho productos propios viven en producción: RS Cloud (hosting para estudiantes de ingeniería), un taller de impresión 3D con tienda y cola de trabajos, y sistemas de reservas y pagos para negocios de Panamá.
 
-Termino la carrera de Ingeniería en Sistemas mientras mantengo productos propios en producción (taller de impresión 3D, impresiones en línea y RS Cloud, hosting para estudiantes). Basado en Panamá (UTC-5), con solapamiento horario cómodo para equipos de EE. UU. y Europa.`,
-  en: `Full-stack engineer. I build the software businesses use every day: the site that wins customers, the panel that runs bookings and the job queue, and the API holding it all up.
+Basado en Panamá (UTC-5), con solapamiento horario cómodo para equipos de EE. UU. y Europa. Trabajo de punta a punta: base de datos, API, interfaz y despliegue.`,
+  en: `Full-stack & platform engineer. I build the software businesses use every day — the site that wins customers, the panel that runs bookings, the API holding it all up — and I own where it runs too: NixOS declared in git, Docker, Cloudflare, CI/CD, backups and monitoring. Nothing depends on one machine or one person's memory.
 
-I work end to end —database, API, UI and deployment— with TypeScript, Astro/Next.js, Hono and PostgreSQL, and I own the infrastructure too: Cloudflare, Docker and NixOS declared in git so nothing depends on a single machine.
+Eight of my own products live in production: RS Cloud (hosting for engineering students), a 3D-printing shop with store and job queue, and booking/payments systems for Panamanian businesses.
 
-I'm finishing my Computer Systems Engineering degree while running my own products in production (a 3D printing shop, online printing and RS Cloud, hosting for students). Based in Panama (UTC-5) with comfortable timezone overlap for US/EU teams.`,
-  fr: `Ingénieur full-stack. Je construis les logiciels que les entreprises utilisent chaque jour : le site qui attire les clients, le panneau qui gère les réservations et la file de travail, et l'API qui tient le tout.
+Based in Panama (UTC-5) with comfortable timezone overlap for US/EU teams. I work end to end: database, API, UI and deployment.`,
+  fr: `Ingénieur full-stack et plateforme. Je construis les logiciels que les entreprises utilisent chaque jour — le site qui attire les clients, le panneau qui gère les réservations, l’API qui tient le tout — et je maîtrise aussi là où ça tourne : NixOS déclaré dans git, Docker, Cloudflare, CI/CD, sauvegardes et supervision. Rien ne dépend d’une seule machine ni de la mémoire d’une personne.
 
-Je travaille de bout en bout —base de données, API, interface et déploiement— avec TypeScript, Astro/Next.js, Hono et PostgreSQL, et je garde aussi l'infrastructure : Cloudflare, Docker et NixOS déclaré dans git pour que rien ne dépende d'une seule machine.
+Huit produits personnels sont en production : RS Cloud (hébergement pour étudiants en ingénierie), un atelier d’impression 3D avec boutique et file de travaux, et des systèmes de réservation et paiement pour des entreprises panaméennes.
 
-Je termine mon diplôme en génie informatique tout en maintenant mes propres produits en production (atelier d'impression 3D, impression en ligne et RS Cloud, hébergement pour étudiants). Basé au Panama (UTC-5), avec un chevauchement horaire confortable pour les équipes US/EU.`,
+Basé au Panama (UTC-5), avec un chevauchement horaire confortable pour les équipes US/EU. Je travaille de bout en bout : base de données, API, interface et déploiement.`,
 }
 
 /* ── Tech stack (el orden de claves es el de render) ── */
 
+const infraItems = [
+  'NixOS',
+  'Docker',
+  'Proxmox',
+  'Cloudflare Workers',
+  'Cloudflare Pages',
+  'R2 / D1',
+  'Hetzner',
+  'GitHub Actions',
+  'Caddy',
+  'Linux',
+]
 const backendItems = [
   'Node.js',
   'Bun',
   'Hono',
-  'Express',
   'FastAPI',
   'PostgreSQL',
   'SQLite / Cloudflare D1',
-  'Prisma',
   'Drizzle ORM',
-  'REST',
-  'GraphQL',
+  'Redis',
+  'REST / GraphQL',
   'Webhooks',
   'WebSocket / SSE',
-  'Redis',
 ]
 const frontendItems = [
   'TypeScript',
@@ -45,19 +54,7 @@ const frontendItems = [
   'Svelte',
   'HTML / CSS',
 ]
-const infraItems = [
-  'Docker',
-  'Cloudflare Workers',
-  'Cloudflare Pages',
-  'R2 / D1',
-  'NixOS',
-  'Proxmox',
-  'Hetzner',
-  'GitHub Actions',
-  'Linux',
-  'Caddy',
-]
-const langsItems = ['TypeScript / JavaScript', 'Python', 'Go', 'Rust', 'C#', 'C++']
+const langsItems = ['TypeScript / JavaScript', 'Python', 'Rust', 'Go']
 const humanLangs = {
   es: ['Inglés (Intermedio)', 'Francés (Aprendiendo)'],
   en: ['English (Intermediate)', 'French (Learning)'],
@@ -66,23 +63,23 @@ const humanLangs = {
 
 export const skillsData = {
   es: {
+    'Infraestructura y DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Backend y APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
-    'Infraestructura y DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Lenguajes': { icon: 'lucide:code-2', items: langsItems },
     'Idiomas': { icon: 'lucide:languages', items: humanLangs.es },
   },
   en: {
+    'Infrastructure & DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Backend & APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
-    'Infrastructure & DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Languages': { icon: 'lucide:code-2', items: langsItems },
     'Spoken': { icon: 'lucide:languages', items: humanLangs.en },
   },
   fr: {
+    'Infrastructure et DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Backend et APIs': { icon: 'lucide:server', items: backendItems },
     Frontend: { icon: 'lucide:monitor-smartphone', items: frontendItems },
-    'Infrastructure et DevOps': { icon: 'lucide:cloud', items: infraItems },
     'Langages': { icon: 'lucide:code-2', items: langsItems },
     'Langues parlées': { icon: 'lucide:languages', items: humanLangs.fr },
   },
@@ -210,50 +207,50 @@ export const servicesData = {
 export const experienceData = {
   es: [
     {
-      company: 'Freelance / Proyectos Personales',
-      role: 'Desarrollador Full-stack',
+      company: 'Independiente / Productos propios',
+      role: 'Desarrollador Full-Stack & de Infraestructura',
       period: '2022 - Actualidad',
       description:
-        'Aplicaciones web y móviles a medida para distintos clientes, de la base de datos al despliegue: reservas, tiendas, paneles de control y sitios corporativos con React, Next.js, Astro y Node.js. Incluye productos propios en producción (impresión 3D, impresiones en línea y RS Cloud).',
+        'Diseño, construyo y opero sistemas web de punta a punta: APIs (Hono/FastAPI), interfaces (TypeScript/React/Astro), PostgreSQL y despliegue sobre Cloudflare, Docker y NixOS declarado en git. Ocho productos en producción con usuarios reales —reservas con pagos, tiendas, colas de trabajo y RS Cloud—, con CI/CD, respaldos y monitoreo a mi cargo.',
     },
     {
       company: 'Universidad Tecnológica de Panamá',
-      role: 'Asistente de Investigación / Estudiante',
+      role: 'Asistente de Investigación',
       period: '2026 - Actualidad',
       description:
-        'Participación en proyectos académicos complejos y desarrollo de herramientas internas para la facultad, incluyendo RS Cloud: entorno de despliegue para que los estudiantes de Ingeniería de Sistemas publiquen sus proyectos sin configurar servidores.',
+        'Herramientas internas para la facultad, destacando RS Cloud: entorno de despliegue que permite a los estudiantes de Ingeniería de Sistemas publicar sus proyectos sin configurar servidores.',
     },
   ],
   en: [
     {
-      company: 'Freelance / Personal Projects',
-      role: 'Full-stack Developer',
+      company: 'Independent / Own products',
+      role: 'Full-Stack & Platform Engineer',
       period: '2022 - Present',
       description:
-        'Custom web and mobile applications for a range of clients, database to deployment: bookings, stores, dashboards and corporate sites with React, Next.js, Astro and Node.js. Plus my own products in production (3D printing, online printing and RS Cloud).',
+        'I design, build and operate web systems end to end: APIs (Hono/FastAPI), UIs (TypeScript/React/Astro), PostgreSQL, and deployment on Cloudflare, Docker and NixOS declared in git. Eight products in production with real users —bookings with payments, stores, job queues and RS Cloud— with CI/CD, backups and monitoring under my responsibility.',
     },
     {
       company: 'Technological University of Panama',
-      role: 'Research Assistant / Student',
+      role: 'Research Assistant',
       period: '2026 - Present',
       description:
-        'Participation in complex academic projects and internal tooling for the faculty, including RS Cloud: a deployment environment so Systems Engineering students can publish their projects without configuring servers.',
+        'Internal tooling for the faculty, most notably RS Cloud: a deployment environment that lets Systems Engineering students ship their projects without configuring servers.',
     },
   ],
   fr: [
     {
-      company: 'Freelance / Projets Personnels',
-      role: 'Développeur Full-stack',
+      company: 'Indépendant / Produits personnels',
+      role: 'Développeur Full-Stack & Infrastructure',
       period: '2022 - Présent',
       description:
-        "Applications web et mobiles sur mesure pour divers clients, de la base de données au déploiement : réservations, boutiques, tableaux de bord et sites corporatifs avec React, Next.js, Astro et Node.js. Plus mes propres produits en production (impression 3D, impression en ligne et RS Cloud).",
+        "Je conçois, construis et exploite des systèmes web de bout en bout : APIs (Hono/FastAPI), interfaces (TypeScript/React/Astro), PostgreSQL et déploiement sur Cloudflare, Docker et NixOS déclaré dans git. Huit produits en production avec de vrais utilisateurs — réservations avec paiement, boutiques, files de travaux et RS Cloud — CI/CD, sauvegardes et supervision inclus.",
     },
     {
       company: 'Université Technologique du Panama',
-      role: 'Assistant de Recherche / Étudiant',
+      role: 'Assistant de Recherche',
       period: '2026 - Présent',
       description:
-        "Participation à des projets académiques complexes et outils internes pour la faculté, dont RS Cloud : un environnement de déploiement pour que les étudiants en génie des systèmes publient leurs projets sans configurer de serveurs.",
+        "Outils internes pour la faculté, dont RS Cloud : un environnement de déploiement pour que les étudiants en génie des systèmes publient leurs projets sans configurer de serveurs.",
     },
   ],
 }

@@ -2,11 +2,12 @@
 import { Icon } from 'astro-icon/components'
 import profilePic from '@/assets/Profile.jpg'
 import { useTranslations, getLangFromUrl } from '../i18n/utils'
+import { defaultLang } from '../i18n/ui'
 import { PROFILE } from '../data/profile'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const cvHref = lang === 'es' ? '/cv' : `/${lang}/cv`
+const cvHref = lang === defaultLang ? '/cv' : `/${lang}/cv`
 ---
 
 <section

@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Portfolio from '../components/Portfolio.astro'
-import { ui } from '../i18n/ui'
+import { ui, defaultLang } from '../i18n/ui'
 ---
 
-<Layout title={`Ricardo Sanjur · ${ui.es['hero.role']}`}>
+<Layout title={`Ricardo Sanjur · ${ui[defaultLang]['hero.role']}`}>
   <Portfolio />
 </Layout>

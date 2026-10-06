@@ -23,5 +23,5 @@
   },
   "technologies": ["Astro", "Cloudflare Workers", "Hono", "Drizzle", "D1", "R2", "React", "three.js", "Tailwind CSS", "better-auth"],
   "liveUrl": "https://3dprints.rsanjur.com",
-  "order": 14
+  "order": 85
 }
