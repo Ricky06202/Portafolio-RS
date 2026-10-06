@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { useTranslations, getLangFromUrl } from '../i18n/utils';
+import { defaultLang } from '../i18n/ui';
 import { getCollection } from 'astro:content';
 
 const lang = getLangFromUrl(Astro.url);
@@ -37,7 +38,7 @@ const projects = allProjects
         <div class="group relative overflow-hidden bg-neutral-900/50 backdrop-blur-md border border-neutral-800 rounded-3xl transition-all duration-500 shadow-xl flex flex-col h-full hover:border-sky-500/30">
           <!-- Link envolvente para toda la card -->
           <a 
-            href={lang === 'es' ? `/projects/${project.id}` : `/${lang}/projects/${project.id}`}
+            href={lang === defaultLang ? `/projects/${project.id}` : `/${lang}/projects/${project.id}`}
             class="absolute inset-0 z-10"
             aria-label={project.title}
           ></a>
