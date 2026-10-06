@@ -16,7 +16,7 @@ export const ui = {
     'nav.education': 'Educación',
     'nav.contact': 'Contacto',
     'hero.role': 'Ingeniero Full-Stack & de Infraestructura',
-    'hero.headline': 'Full-Stack & Platform Engineer',
+    'hero.headline': 'Ingeniero Full-Stack & de Infraestructura',
     'hero.sub': 'Construyo y mantengo webs, APIs y sistemas internos — todo desplegado declarado en git, reproducible de serie',
     'hero.tagline': 'NixOS • Docker • Cloudflare • TypeScript • Hono • PostgreSQL',
     'hero.ctaProjects': 'Ver proyectos',
