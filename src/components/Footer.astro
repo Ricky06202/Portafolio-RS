@@ -20,10 +20,14 @@ const t = useTranslations(lang)
         href="https://rsanjur.com"
         target="_blank"
         rel="noopener"
-        class="inline-block text-neutral-500 text-sm mt-2 hover:text-sky-400 transition-colors"
+        class="inline-flex items-center gap-2 text-neutral-500 text-sm mt-2 hover:text-sky-400 transition-colors"
       >
-        {t('footer.local')}<span class="text-sky-400 font-bold">rsanjur.com</span> →
+        <svg width="18" height="18" viewBox="0 0 512 512" aria-hidden="true" style="flex:none"><rect width="512" height="512" rx="112" fill="#0B1220"/><text x="256" y="340" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="252" font-weight="800" letter-spacing="-8" fill="#FFFFFF">RS</text><rect x="196" y="380" width="120" height="26" rx="13" fill="#22D3EE"/></svg>
+        <span>{t('footer.madeby')}<span class="text-sky-400 font-bold">rsanjur.com</span></span>
       </a>
+      <p class="text-neutral-500 text-sm mt-1">
+        {t('footer.local')}<a href="https://rsanjur.com" target="_blank" rel="noopener" class="text-sky-400 font-bold hover:underline">rsanjur.com</a>
+      </p>
     </div>
     
     <div class="flex items-center gap-4">
