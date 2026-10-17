@@ -11,7 +11,10 @@ const txt = {
     intro: '¿Una página para tu negocio, un sistema de reservas o un backend que no se caiga? Contame en dos líneas.',
     nombre: 'Tu nombre',
     email: 'Tu correo',
-    mensaje: 'Qué necesitás',
+    mensaje: 'Contame qué necesitás',
+    ejemplo: 'ej: quiero una página para mi restaurante con el menú y el pedido por WhatsApp',
+    tipo: '¿Qué necesitás? (elegí)',
+    presupuesto: 'Presupuesto (opcional)',
     enviar: 'Enviarme el mensaje',
     ok: 'Listo, me llegó. Te contesto pronto.',
     error: 'No salió. Probá otra vez o escribime al correo.',
@@ -20,7 +23,10 @@ const txt = {
     intro: 'A website for your business, a booking system, or a backend that never falls over? Two lines is enough to start.',
     nombre: 'Your name',
     email: 'Your email',
-    mensaje: 'What you need',
+    mensaje: 'Tell me what you need',
+    ejemplo: 'e.g. I need a site for my restaurant with the menu and WhatsApp ordering',
+    tipo: 'What do you need? (pick one)',
+    presupuesto: 'Budget (optional)',
     enviar: 'Send message',
     ok: 'Got it. I will reply soon.',
     error: 'That failed. Try again or email me.',
@@ -29,7 +35,10 @@ const txt = {
     intro: "Un site pour votre entreprise, un système de réservation ou un backend fiable ? Deux lignes suffisent.",
     nombre: 'Votre nom',
     email: 'Votre e-mail',
-    mensaje: 'Votre besoin',
+    mensaje: 'Dites-moi ce qu\'il vous faut',
+    ejemplo: "ex : je veux un site pour mon restaurant avec le menu et la commande par WhatsApp",
+    tipo: 'De quoi avez-vous besoin ? (choisissez)',
+    presupuesto: 'Budget (facultatif)',
     enviar: 'Envoyer le message',
     ok: 'Reçu. Je réponds vite.',
     error: "Ça n'a pas marché. Réessayez ou écrivez-moi.",
@@ -38,11 +47,29 @@ const txt = {
   intro: '',
   nombre: 'Nombre',
   email: 'Email',
-  mensaje: 'Mensaje',
+  mensaje: 'Contame qué necesitás',
+  ejemplo: '',
+  tipo: '¿Qué necesitás?',
+  presupuesto: 'Presupuesto (opcional)',
   enviar: 'Enviar',
   ok: 'Listo, me llegó.',
   error: 'No salió. Probá otra vez.',
 }
+
+const TIPOS = [
+  { v: 'Página web', es: 'Una página web', en: 'A website', fr: 'Un site web' },
+  { v: 'Sistema o app', es: 'Un sistema o app', en: 'A system or app', fr: 'Un système ou une app' },
+  { v: 'Tienda con pagos', es: 'Una tienda con pagos', en: 'A store with payments', fr: 'Une boutique avec paiement' },
+  { v: 'Arreglar algo', es: 'Arreglar algo que ya tengo', en: 'Fix something I already have', fr: "Réparer ce que j'ai déjà" },
+  { v: 'No sé todavía', es: 'No sé todavía', en: 'Not sure yet', fr: 'Je ne sais pas encore' },
+]
+const PRESUPUESTOS = [
+  { v: 'Menos de $300', es: 'Menos de $300', en: 'Under $300', fr: 'Moins de 300 $' },
+  { v: '$300 - $800', es: '$300 – $800', en: '$300 – $800', fr: '300 – 800 $' },
+  { v: '$800 - $1,500', es: '$800 – $1,500', en: '$800 – $1,500', fr: '800 – 1 500 $' },
+  { v: 'Más de $1,500', es: 'Más de $1,500', en: 'Over $1,500', fr: 'Plus de 1 500 $' },
+  { v: 'No sé', es: 'No sé / no es problema', en: 'Not sure / not an issue', fr: 'Je ne sais pas' },
+]
 
 const links = [
   { name: 'GitHub', icon: 'lucide:github', href: PROFILE.github, color: 'hover:text-white' },
@@ -81,12 +108,28 @@ const links = [
         placeholder={txt.email}
         class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"
       />
+      <select
+        name="tipo"
+        aria-label={txt.tipo}
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-sky-500/70"
+      >
+        <option value="">{txt.tipo}</option>
+        {TIPOS.map((o) => <option value={o.v}>{o[lang] ?? o.es}</option>)}
+      </select>
+      <select
+        name="presupuesto"
+        aria-label={txt.presupuesto}
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-sky-500/70"
+      >
+        <option value="">{txt.presupuesto}</option>
+        {PRESUPUESTOS.map((o) => <option value={o.v}>{o[lang] ?? o.es}</option>)}
+      </select>
       <textarea
         name="mensaje"
         required
         rows="3"
         maxlength="1500"
-        placeholder={txt.mensaje}
+        placeholder={txt.ejemplo || txt.mensaje}
         class="w-full resize-none rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"></textarea>
       <!-- honeypot: invisible para personas -->
       <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
