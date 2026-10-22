@@ -5,23 +5,57 @@ import Footer from '../components/Footer.astro'
 import { ViewTransitions } from 'astro:transitions'
 import '../styles/global.css'
 import { getLangFromUrl } from '../i18n/utils'
+import { PROFILE } from '../data/profile'
 
 interface Props {
   title: string
   lang?: string
+  description?: string
 }
 
-const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
+const defaultDescription = 'Ricardo Sanjur — Full-Stack Software Engineer building web systems, APIs, and cloud-backed products. Based in Panama (UTC-5), open to remote work.'
+const { title, lang = getLangFromUrl(Astro.url), description = defaultDescription } = Astro.props
+const siteBase = new URL('https://portafolio.rsanjur.com')
+const canonicalPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`
+const canonical = new URL(canonicalPath, siteBase).href
+const ogImage = new URL('/og-image.png', siteBase).href
+const locale = lang === 'es' ? 'es_PA' : lang === 'fr' ? 'fr_FR' : 'en_US'
+const language = lang === 'es' ? 'es-PA' : lang === 'fr' ? 'fr-FR' : 'en-US'
+const jobTitle = lang === 'es'
+  ? 'Ingeniero de Software Full Stack'
+  : lang === 'fr'
+    ? 'Ingénieur logiciel full-stack'
+    : 'Full-Stack Software Engineer'
+const ogImageAlt = lang === 'es'
+  ? 'Retrato de Ricardo Sanjur, ingeniero de software Full Stack'
+  : lang === 'fr'
+    ? 'Portrait de Ricardo Sanjur, ingénieur logiciel full-stack'
+    : 'Portrait of Ricardo Sanjur, Full-Stack Software Engineer'
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: PROFILE.name,
+  url: new URL('/', siteBase).href,
+  jobTitle,
+  email: PROFILE.jobsEmail,
+  sameAs: [PROFILE.linkedin, PROFILE.github],
+}
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Portafolio RS — Ricardo Sanjur',
+  url: new URL('/', siteBase).href,
+  inLanguage: language,
+  author: { '@type': 'Person', name: PROFILE.name },
+}
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Ricardo Sanjur — Full-Stack & Platform Engineer. Sites, APIs and internal tools with the infrastructure owned too: NixOS, Docker, Cloudflare, TypeScript, Hono and PostgreSQL. Based in Panama (UTC-5), overlapping US/EU teams."
-    />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Display para títulos (Space Grotesk), mono para código (JetBrains Mono) -->
@@ -36,17 +70,23 @@ const { title, lang = getLangFromUrl(Astro.url) } = Astro.props
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Full-Stack Engineer — custom websites, APIs, internal tools and infrastructure. TypeScript, Astro, Next.js, Hono, PostgreSQL, Cloudflare." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Portafolio RS — Ricardo Sanjur" />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content="Full-Stack Engineer — custom websites, APIs, internal tools and infrastructure. TypeScript, Astro, Next.js, Hono, PostgreSQL, Cloudflare." />
-    <meta property="twitter:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify([personSchema, websiteSchema])} />
     <ViewTransitions />
   </head>
   <body class="bg-neutral-950 text-neutral-200 font-sans selection:bg-sky-500/30 selection:text-sky-400 overflow-x-hidden">

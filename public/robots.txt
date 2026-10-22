@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /panel/
+
+Sitemap: https://portafolio.rsanjur.com/sitemap.xml

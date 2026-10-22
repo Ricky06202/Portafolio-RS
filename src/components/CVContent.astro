@@ -1,42 +1,24 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
-import { aboutData, skillsData, experienceData } from '../i18n/data'
+import { skillsData } from '../i18n/data'
 import { PROFILE } from '../data/profile'
-import { getCollection } from 'astro:content'
+import { CV_DATA } from '../data/cv'
 import { Icon } from 'astro-icon/components'
 import profilePic from '@/assets/Profile.jpg'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const about = aboutData[lang as 'es' | 'en' | 'fr']
+const cv = CV_DATA[lang as 'es' | 'en' | 'fr']
+const about = cv.summary
 const skills = skillsData[lang as 'es' | 'en' | 'fr']
-const experiences = experienceData[lang as 'es' | 'en' | 'fr']
-
-const allProjects = await getCollection('projects');
-// Proyectos destacados seleccionados manualmente para el CV (los más fuertes,
-// en el orden en que se muestran). Slugs = nombres de archivo sin .json.
-const featuredSlugs = [
-  'utpcloud',                    // RS Cloud — mi plataforma de hosting (el héroe)
-  '3dprints',                    // tienda + cola de producción en Cloudflare
-  'impresiones-online',          // pagos + cola en tiempo real por WebSockets
-  'reservas-senderos-amados',    // reservas y panel para negocio real
-  'senderos-amados',             // sitio del cliente con booking integrado
-];
-const projects = featuredSlugs
-  .map((slug) => allProjects.find((project) => project.id === slug))
-  .filter((project): project is NonNullable<typeof project> => project !== undefined)
-  .map((project) => ({
-    title: project.data.title,
-    role: project.data.role[lang as 'es' | 'en' | 'fr'],
-    description: project.data.description[lang as 'es' | 'en' | 'fr'],
-    technologies: project.data.technologies,
-  }));
+const experiences = cv.experience
+const projects = cv.projects
 
 // Datos de contacto
 const contact = {
   email: PROFILE.jobsEmail,
-  location: 'Panamá (UTC-5) · Remote',
+  location: cv.location,
   linkedin: 'linkedin.com/in/ricardo-amado-sanjur-gomez-61067822b',
   github: 'github.com/Ricky06202',
   website: 'portafolio.rsanjur.com'
@@ -71,7 +53,8 @@ const contact = {
       <!-- Nombre y Rol -->
       <div class="flex-1">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-slate-900 uppercase mb-2 break-words">Ricardo Sanjur</h1>
-        <p class="text-lg sm:text-xl font-bold text-sky-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]">{t('hero.role')}</p>
+        <p class="text-lg sm:text-xl font-bold text-sky-600 uppercase tracking-[0.15em] sm:tracking-[0.2em]">{cv.role}</p>
+        <p class="text-xs sm:text-sm font-bold text-slate-500 uppercase tracking-wide">{cv.specialization}</p>
       </div>
     </div>
     
@@ -114,7 +97,7 @@ const contact = {
         </p>
         <div class="flex flex-wrap gap-2 mt-4">
           <span class="text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
-            {lang === 'es' ? 'Disponible para trabajo remoto (UTC-5)' : lang === 'fr' ? 'Disponible en remote (UTC-5)' : 'Available for Remote Work (UTC-5)'}
+            {cv.labels.remote}
           </span>
         </div>
       </section>
@@ -136,6 +119,11 @@ const contact = {
               <p class="text-sm text-slate-600 leading-relaxed">
                 {exp.description}
               </p>
+              {exp.bullets.length > 0 && (
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-600 leading-relaxed">
+                  {exp.bullets.map((bullet) => <li>{bullet}</li>)}
+                </ul>
+              )}
             </div>
           ))}
         </div>

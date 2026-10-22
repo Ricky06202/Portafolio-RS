@@ -1,0 +1,73 @@
+---
+import CVATSContent from '../../components/CVATSContent.astro'
+import Layout from '../../layouts/Layout.astro'
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'es' } }]
+}
+
+const description = 'Currículum ATS de Ricardo Sanjur, ingeniero de software Full Stack enfocado en backend, APIs e infraestructura cloud.'
+---
+
+<Layout title="CV ATS | Ricardo Sanjur" lang="es" description={description}>
+  <CVATSContent lang="es" />
+</Layout>
+
+<style is:global>
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+  }
+
+  body > header,
+  body > footer,
+  body > div.fixed {
+    display: none !important;
+  }
+
+  body > main {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  @page {
+    size: letter;
+    margin: 0.4in;
+  }
+
+  @media print {
+    body {
+      overflow: visible !important;
+      background: #fff !important;
+      color: #000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body > header,
+    body > footer,
+    body > div.fixed,
+    .cv-ats-toolbar {
+      display: none !important;
+    }
+
+    body > main {
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .cv-ats-wrap,
+    .cv-ats {
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+</style>

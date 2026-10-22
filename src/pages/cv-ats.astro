@@ -1,0 +1,69 @@
+---
+import CVATSContent from '../components/CVATSContent.astro'
+import Layout from '../layouts/Layout.astro'
+
+const description = 'ATS-friendly resume for Ricardo Sanjur, Full-Stack Software Engineer focused on backend, APIs, and cloud infrastructure.'
+---
+
+<Layout title="Resume | Ricardo Sanjur" lang="en" description={description}>
+  <CVATSContent lang="en" />
+</Layout>
+
+<style is:global>
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+  }
+
+  body > header,
+  body > footer,
+  body > div.fixed {
+    display: none !important;
+  }
+
+  body > main {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  @page {
+    size: letter;
+    margin: 0.4in;
+  }
+
+  @media print {
+    body {
+      overflow: visible !important;
+      background: #fff !important;
+      color: #000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body > header,
+    body > footer,
+    body > div.fixed,
+    .cv-ats-toolbar {
+      display: none !important;
+    }
+
+    body > main {
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .cv-ats-wrap,
+    .cv-ats {
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+</style>

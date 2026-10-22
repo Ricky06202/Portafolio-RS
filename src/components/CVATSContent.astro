@@ -1,0 +1,367 @@
+---
+import { PROFILE } from '../data/profile'
+import { CV_DATA } from '../data/cv'
+
+interface Props {
+  lang: 'en' | 'es'
+}
+
+const { lang } = Astro.props
+const cv = CV_DATA[lang]
+const visualCvHref = lang === 'es' ? '/es/cv' : '/cv'
+const languageHref = lang === 'es' ? '/cv-ats' : '/es/cv-ats'
+const linkedin = PROFILE.linkedin.replace(/^https:\/\/(www\.)?/, '')
+const github = PROFILE.github.replace(/^https:\/\//, '')
+---
+
+<div class="cv-ats-wrap">
+  <nav class="cv-ats-toolbar" aria-label={lang === 'es' ? 'Opciones del CV' : 'CV options'}>
+    <div class="cv-ats-toolbar__links">
+      <a href={visualCvHref}>{cv.labels.visual}</a>
+      <a href={languageHref}>{lang === 'es' ? 'English' : 'Español'}</a>
+    </div>
+    <button type="button" onclick="window.print()">{cv.labels.print}</button>
+  </nav>
+
+  <article class="cv-ats" aria-label={lang === 'es' ? 'Currículum ATS de Ricardo Sanjur' : 'Ricardo Sanjur ATS resume'}>
+    <header class="cv-ats__header">
+      <h1>{PROFILE.name}</h1>
+      <p class="cv-ats__role">{cv.role} | {cv.specialization}</p>
+      <p class="cv-ats__contact">{cv.location}</p>
+      <p class="cv-ats__contact">
+        <a href={`mailto:${PROFILE.jobsEmail}`}>{PROFILE.jobsEmail}</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://portafolio.rsanjur.com">portafolio.rsanjur.com</a>
+      </p>
+      <p class="cv-ats__contact">
+        <a href={PROFILE.linkedin}>{linkedin}</a>
+        <span aria-hidden="true"> · </span>
+        <a href={PROFILE.github}>{github}</a>
+      </p>
+    </header>
+
+    <section class="cv-ats__section">
+      <h2>{cv.labels.summary}</h2>
+      <p>{cv.summary}</p>
+    </section>
+
+    <section class="cv-ats__section">
+      <h2>{cv.labels.experience}</h2>
+      {cv.experience.map((entry) => (
+        <article class="cv-ats__entry">
+          <h3>{entry.role} — {entry.company}</h3>
+          <p class="cv-ats__date">{entry.period}</p>
+          <p>{entry.description}</p>
+          {entry.bullets.length > 0 && (
+            <ul>
+              {entry.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </section>
+
+    <section class="cv-ats__section">
+      <h2>{cv.labels.projects}</h2>
+      {cv.projects.map((project) => (
+        <article class="cv-ats__entry">
+          <h3>{project.title}</h3>
+          <p class="cv-ats__date">{project.role}</p>
+          <p>{project.description}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="cv-ats__section">
+      <h2>{cv.labels.skills}</h2>
+      {cv.skillGroups.map((group) => (
+        <p><strong>{group.label}:</strong> {group.items}</p>
+      ))}
+    </section>
+
+    <section class="cv-ats__section">
+      <h2>{cv.labels.education}</h2>
+      {cv.education.map((item) => (
+        <article class="cv-ats__entry cv-ats__entry--compact">
+          <h3>{item.institution}</h3>
+          <p>{item.degree} · {item.status}</p>
+        </article>
+      ))}
+    </section>
+
+  </article>
+</div>
+
+<style>
+  .cv-ats-wrap {
+    --rs-blue: #0284c7;
+    --rs-blue-deep: #0369a1;
+    --rs-blue-dark: #075985;
+    --rs-blue-soft: #bae6fd;
+    padding: 1rem 0;
+  }
+
+  .cv-ats-toolbar {
+    max-width: 850px;
+    margin: 0 auto 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .cv-ats-toolbar__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .cv-ats-toolbar a,
+  .cv-ats-toolbar button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    color: #0f172a;
+    background: #fff;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .cv-ats-toolbar a:hover {
+    border-color: var(--rs-blue);
+    background: #f0f9ff;
+    color: var(--rs-blue-deep);
+  }
+
+  .cv-ats-toolbar a:focus-visible,
+  .cv-ats-toolbar button:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 2px;
+  }
+
+  .cv-ats-toolbar button {
+    border-color: var(--rs-blue-deep);
+    color: #fff;
+    background: var(--rs-blue-deep);
+  }
+
+  .cv-ats-toolbar button:hover {
+    border-color: var(--rs-blue-dark);
+    background: var(--rs-blue-dark);
+  }
+
+  .cv-ats {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 3rem);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: #fff;
+    color: #0f172a;
+    box-shadow: 0 12px 32px rgb(15 23 42 / 0.08);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .cv-ats h1,
+  .cv-ats h2,
+  .cv-ats h3,
+  .cv-ats p {
+    margin: 0;
+  }
+
+  .cv-ats__header {
+    padding: 1rem 1.1rem 0.9rem;
+    border-bottom: 4px solid var(--rs-blue);
+    border-radius: 0.55rem;
+    background: linear-gradient(115deg, #f0f9ff 0%, #fff 76%);
+    text-align: center;
+  }
+
+  .cv-ats__header h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .cv-ats__role {
+    margin-top: 0.35rem !important;
+    color: var(--rs-blue-deep);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .cv-ats__contact {
+    margin-top: 0.2rem !important;
+    color: #334155;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+
+  .cv-ats a {
+    color: var(--rs-blue-deep);
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+  }
+
+  .cv-ats__contact a {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+  }
+
+  .cv-ats__section {
+    margin-top: 1.1rem;
+  }
+
+  .cv-ats__section h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--rs-blue-soft);
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cv-ats__section h2::before {
+    content: '';
+    flex: 0 0 1.5rem;
+    height: 3px;
+    background: linear-gradient(90deg, #0ea5e9, var(--rs-blue));
+  }
+
+  .cv-ats__section > p + p {
+    margin-top: 0.25rem;
+  }
+
+  .cv-ats__entry {
+    margin-top: 0.8rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-ats__entry h3 {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .cv-ats__entry p {
+    margin-top: 0.15rem;
+  }
+
+  .cv-ats__date {
+    color: var(--rs-blue-deep);
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .cv-ats__entry ul {
+    margin: 0.3rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  .cv-ats__entry li + li {
+    margin-top: 0.15rem;
+  }
+
+  .cv-ats__entry--compact {
+    margin-top: 0.45rem;
+  }
+
+  @media (max-width: 480px) {
+    .cv-ats-toolbar {
+      align-items: stretch;
+    }
+
+    .cv-ats-toolbar__links,
+    .cv-ats-toolbar button {
+      width: 100%;
+    }
+
+    .cv-ats-toolbar__links a {
+      flex: 1;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .cv-ats__header {
+      text-align: left;
+    }
+  }
+
+  @media print {
+    .cv-ats-wrap {
+      padding: 0;
+    }
+
+    .cv-ats {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: #0f172a;
+      font-size: 10pt;
+      line-height: 1.2;
+    }
+
+    .cv-ats__section {
+      margin-top: 0.5rem;
+    }
+
+    .cv-ats__section h2 {
+      margin-bottom: 0.25rem;
+    }
+
+    .cv-ats__header {
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+    }
+
+    .cv-ats__entry {
+      margin-top: 0.38rem;
+    }
+
+    .cv-ats__entry p {
+      margin-top: 0.1rem;
+    }
+
+    .cv-ats__entry ul {
+      margin-top: 0.2rem;
+    }
+
+    .cv-ats__header h1 {
+      font-size: 20pt;
+    }
+
+    .cv-ats__contact a {
+      display: inline;
+      min-height: 0;
+    }
+  }
+</style>

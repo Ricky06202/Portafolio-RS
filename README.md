@@ -23,8 +23,10 @@ Desplegar: `wrangler deploy` (usa `wrangler.jsonc`; assets desde `dist/`).
 | Etiquetas/cadenas de UI (nav, títulos de sección, CTAs) | `src/i18n/ui.ts` (3 bloques: es/en/fr — añade la clave en los tres) |
 | Proyectos | `src/content/projects/*.json` (`order` alto = primero; `projects-metadata.json` lleva el contador; `year` opcional para "Detalles Rápidos") |
 | Orden de secciones del home | `src/components/Portfolio.astro` |
-| CV imprimible (1 página, print → PDF) | `src/components/CVContent.astro` — botón «Imprimir / Guardar PDF» |
-| Proyectos que salen en el CV | lista `featuredSlugs` en `CVContent.astro` |
+| Contenido de los CV | `src/data/cv.ts` — datos compartidos por el CV visual y el ATS |
+| Rutas de CV | `/cv` y `/es/cv` (visual); `/cv-ats` y `/es/cv-ats` (ATS, imprimir → PDF) |
+| Portada para compartir | `node scripts/og-cover.mjs` regenera `public/og-image.png` desde `src/assets/Profile.jpg` |
+| Sitemap | `src/pages/sitemap.xml.ts` se genera desde las rutas y proyectos del sitio |
 
 ## Notas de honestidad
 
