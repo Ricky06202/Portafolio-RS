@@ -101,7 +101,7 @@ const links = [
         maxlength="80"
         autocomplete="name"
         placeholder={txt.nombre}
-        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-base text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"
       />
       <input
         type="email"
@@ -111,12 +111,12 @@ const links = [
         autocomplete="email"
         inputmode="email"
         placeholder={txt.email}
-        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-base text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"
       />
       <select
         name="tipo"
         aria-label={txt.tipo}
-        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-sky-500/70"
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-base text-white outline-none transition-colors focus:border-sky-500/70"
       >
         <option value="">{txt.tipo}</option>
         {TIPOS.map((o) => <option value={o.v}>{o[lang] ?? o.es}</option>)}
@@ -124,7 +124,7 @@ const links = [
       <select
         name="presupuesto"
         aria-label={txt.presupuesto}
-        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-sky-500/70"
+        class="w-full rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-base text-white outline-none transition-colors focus:border-sky-500/70"
       >
         <option value="">{txt.presupuesto}</option>
         {PRESUPUESTOS.map((o) => <option value={o.v}>{o[lang] ?? o.es}</option>)}
@@ -135,7 +135,7 @@ const links = [
         rows="3"
         maxlength="1500"
         placeholder={txt.ejemplo || txt.mensaje}
-        class="w-full resize-none rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-sm text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"></textarea>
+        class="w-full resize-none rounded-xl border border-neutral-700/60 bg-neutral-900/60 px-3 py-2.5 text-base text-white placeholder:text-neutral-500 outline-none transition-colors focus:border-sky-500/70"></textarea>
       <!-- honeypot: invisible para personas -->
       <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
       <button
@@ -165,39 +165,44 @@ const links = [
 
   <script define:vars={{ txt }}>
     // El formulario del portafolio usa el backend de rsanjur.com (mismo D1 y mismo aviso).
-    const form = document.getElementById('form-contacto') as HTMLFormElement | null
+    const form = document.getElementById('form-contacto')
     const estado = document.getElementById('contacto-estado')
     const OK = txt.ok
     const ERR = txt.error
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault()
-      if (!estado) return
-      const datos = Object.fromEntries(new FormData(form).entries()) as Record<string, string>
-      if (!datos.nombre || !datos.email || !datos.mensaje) {
-        estado.textContent = ERR
-        return
-      }
-      const boton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null
-      if (boton) boton.disabled = true
-      estado.textContent = ''
-      try {
-        const res = await fetch('https://rsanjur.com/api/contacto', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ ...datos, origen: 'portafolio' }),
-        })
-        const data = await res.json().catch(() => ({}))
-        if (res.ok && data.ok) {
-          estado.textContent = OK
-          form.reset()
-        } else {
+    if (!(form instanceof HTMLFormElement)) {
+      console.error('Portfolio contact form element is missing')
+    } else {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        if (!estado) return
+        const datos = Object.fromEntries(new FormData(form).entries())
+        if (!datos.nombre || !datos.email || !datos.mensaje) {
           estado.textContent = ERR
+          return
         }
-      } catch {
-        estado.textContent = ERR
-      } finally {
-        if (boton) boton.disabled = false
-      }
-    })
+        const boton = form.querySelector('button[type="submit"]')
+        if (boton instanceof HTMLButtonElement) boton.disabled = true
+        estado.textContent = ''
+        try {
+          const res = await fetch('https://rsanjur.com/api/contacto', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ ...datos, origen: 'portafolio' }),
+          })
+          const data = await res.json().catch(() => ({}))
+          if (res.ok && data.ok) {
+            estado.textContent = OK
+            form.reset()
+          } else {
+            estado.textContent = ERR
+          }
+        } catch (error) {
+          console.error('Portfolio contact request failed', error)
+          estado.textContent = ERR
+        } finally {
+          if (boton instanceof HTMLButtonElement) boton.disabled = false
+        }
+      })
+    }
   </script>
 </section>

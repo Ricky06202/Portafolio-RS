@@ -57,13 +57,6 @@ export const CV_DATA: Record<CVLocale, CVData> = {
           'Diagnosed a production checkout failure across authentication, CORS, and provider responses; verified a successful Yappy payment for a client store.',
         ],
       },
-      {
-        company: 'Universidad Tecnológica de Panamá',
-        role: 'Research Assistant',
-        period: '2026–Present',
-        description: 'Support faculty research in Systems Engineering.',
-        bullets: [],
-      },
     ],
     projects: [
       {
@@ -91,7 +84,8 @@ export const CV_DATA: Record<CVLocale, CVData> = {
     skillGroups: [
       { label: 'Programming Languages', items: 'TypeScript, JavaScript, Python, Go, Rust' },
       { label: 'Backend and Frontend', items: 'Node.js, Bun, Hono, FastAPI, REST, React, Next.js, Astro, Svelte, Tailwind CSS' },
-      { label: 'Data, Cloud and Operations', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers, Docker, NixOS, Linux, GitHub Actions' },
+      { label: 'Data and Cloud', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers' },
+      { label: 'Operations and Environments', items: 'Docker, Linux, NixOS, GitHub Actions' },
       { label: 'Development Workflow', items: 'AI-assisted software development, requirements definition, debugging, testing, production validation' },
       { label: 'Languages', items: 'Spanish (native), English (intermediate), French (learning)' },
     ],
@@ -133,13 +127,6 @@ export const CV_DATA: Record<CVLocale, CVData> = {
           'Diagnostiqué un fallo de checkout en autenticación, CORS y respuesta del proveedor; verifiqué un pago Yappy exitoso en producción para un cliente.',
         ],
       },
-      {
-        company: 'Universidad Tecnológica de Panamá',
-        role: 'Asistente de Investigación',
-        period: '2026–Actualidad',
-        description: 'Apoyo proyectos de investigación de Ingeniería en Sistemas.',
-        bullets: [],
-      },
     ],
     projects: [
       {
@@ -167,7 +154,8 @@ export const CV_DATA: Record<CVLocale, CVData> = {
     skillGroups: [
       { label: 'Lenguajes', items: 'TypeScript, JavaScript, Python, Go, Rust' },
       { label: 'Backend y frontend', items: 'Node.js, Bun, Hono, FastAPI, REST, React, Next.js, Astro, Svelte, Tailwind CSS' },
-      { label: 'Datos, cloud y operaciones', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers, Docker, NixOS, Linux, GitHub Actions' },
+      { label: 'Datos y cloud', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers' },
+      { label: 'Operaciones y entornos', items: 'Docker, Linux, NixOS, GitHub Actions' },
       { label: 'Flujo de desarrollo', items: 'Desarrollo asistido por IA, definición de requisitos, depuración, pruebas y validación en producción' },
       { label: 'Idiomas', items: 'Español (nativo), inglés (intermedio), francés (en aprendizaje)' },
     ],
@@ -209,13 +197,6 @@ export const CV_DATA: Record<CVLocale, CVData> = {
           'A diagnostiqué une panne de paiement en production liée à l’authentification, CORS et la réponse du fournisseur ; a vérifié une transaction Yappy réussie pour un client.',
         ],
       },
-      {
-        company: 'Universidad Tecnológica de Panamá',
-        role: 'Assistant de recherche',
-        period: '2026–Présent',
-        description: 'Participe aux projets de recherche en génie des systèmes.',
-        bullets: [],
-      },
     ],
     projects: [
       {
@@ -243,7 +224,8 @@ export const CV_DATA: Record<CVLocale, CVData> = {
     skillGroups: [
       { label: 'Langages', items: 'TypeScript, JavaScript, Python, Go, Rust' },
       { label: 'Backend et frontend', items: 'Node.js, Bun, Hono, FastAPI, REST, React, Next.js, Astro, Svelte, Tailwind CSS' },
-      { label: 'Données, cloud et opérations', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers, Docker, NixOS, Linux, GitHub Actions' },
+      { label: 'Données et cloud', items: 'PostgreSQL, SQLite, D1, R2, Drizzle ORM, Redis, Cloudflare Workers' },
+      { label: 'Opérations et environnements', items: 'Docker, Linux, NixOS, GitHub Actions' },
       { label: 'Workflow de développement', items: 'Développement assisté par IA, définition des exigences, débogage, tests et validation en production' },
       { label: 'Langues', items: 'Espagnol (langue maternelle), anglais (intermédiaire), français (en apprentissage)' },
     ],
